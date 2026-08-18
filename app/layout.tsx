@@ -13,14 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://canonicadata.com"),
   title: "Canonica Data | Trusted Data Foundations",
   description:
     "Canonica Data helps organizations build trusted data foundations, reliable analytics, and AI-ready systems.",
+  alternates: {
+    canonical: "https://canonicadata.com",
+  },
   openGraph: {
     title: "Canonica Data | Trusted Data Foundations",
     description:
       "Build the trusted data foundation behind better analytics, reporting, and AI.",
-    url: "https://www.canonicadata.com",
+    url: "https://canonicadata.com",
     siteName: "Canonica Data",
     type: "website",
   },

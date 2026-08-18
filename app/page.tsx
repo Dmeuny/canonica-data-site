@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import type { Metadata } from "next";
 import ContactForm from "./components/ContactForm";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Canonica Data | Trusted data foundations for analytics and AI",
@@ -327,6 +328,60 @@ export default function Home() {
   .stack-badge:hover {
     border-color: var(--teal-500);
     background: rgba(47,168,160,0.06);
+  }
+
+  /* ---------- RESOURCES ---------- */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .resource-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 30px 26px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .resource-card:hover {
+    border-color: var(--teal-500);
+    box-shadow: 0 16px 32px -16px rgba(11,30,61,0.18);
+    transform: translateY(-3px);
+  }
+  .resource-category {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--teal-600);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+  .resource-card h3 {
+    font-size: 17.5px;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    color: var(--navy-900);
+  }
+  .resource-card p {
+    font-size: 14.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 18px;
+  }
+  .resource-read {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy-800);
+  }
+  .resources-footer {
+    display: flex;
+    justify-content: center;
   }
 
   /* ---------- FAQ ---------- */
@@ -672,6 +727,7 @@ export default function Home() {
     .hero .wrap { grid-template-columns: 1fr; }
     .hero-visual { height: 300px; order: -1; }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .resources-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
@@ -691,6 +747,7 @@ export default function Home() {
 
       <Navbar />
 
+      {/* ===== Hero ===== */}
       <section className="hero">
         <div className="wrap">
           <div>
@@ -740,6 +797,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== Services ===== */}
       <section className="section" id="services">
         <div className="wrap">
           <div className="section-head">
@@ -780,35 +838,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== About Me ===== */}
       <section className="section" id="about">
         <div className="wrap">
           <div className="about-grid">
             <div className="about-copy">
               <span className="section-eyebrow">About</span>
-              <h2 style={{ fontSize: "32px", marginBottom: "18px", letterSpacing: "-0.015em" }}>Six years in analytics. Built to engineering standard.</h2>
-              <p>Canonica Data is led by Dev Meunier, an analytics professional with six years of experience turning messy reporting into systems people actually trust, now built on a foundation of formal data engineering training.</p>
-              <p>The practice exists because most &quot;data problems&quot; aren&apos;t really about the dashboard. They&apos;re about nobody agreeing on what the numbers mean in the first place.</p>
+              <h2 style={{ fontSize: "32px", marginBottom: "18px", letterSpacing: "-0.015em" }}>You work directly with the person building your system.</h2>
+              <p>Canonica Data is Dev Meunier. Six years spent inside operations, reporting, and analytics, close enough to the numbers to see exactly where trust in them breaks down, before specializing in the systems underneath: the pipelines, models, and definitions that decide whether a business can actually rely on its own data.</p>
+              <p>Every engagement is hands-on from start to finish. No account manager between you and the work, no junior team learning on your project, no handoffs.</p>
             </div>
             <div className="credentials">
               <div className="credential">
-                <div className="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><path d="M10 2l7 3.5v5c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5v-5L10 2z" stroke="#1E7E78" strokeWidth="1.5"/></svg></div>
+                <div className="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><path d="M4 16V9M10 16V4M16 16v-6" stroke="#1E7E78" strokeWidth="1.6" strokeLinecap="round"/></svg></div>
                 <div>
-                  <h4>DataExpert.io certification</h4>
-                  <p>Production-grade data engineering training under Zach Wilson, dimensional modeling, streaming pipelines, and pipeline reliability practices used by top tech companies.</p>
+                  <h4>Automates the reporting nobody wants to do by hand</h4>
+                  <p>Eliminated over 10 hours of weekly manual reporting for a prior client by replacing spreadsheet exports with an automated pipeline, freeing that time for actual analysis instead of copy-paste.</p>
                 </div>
               </div>
               <div className="credential">
                 <div className="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="#1E7E78" strokeWidth="1.5"/><path d="M6 10l3 3 5-6" stroke="#1E7E78" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></div>
                 <div>
-                  <h4>Tableau Desktop Certified Professional</h4>
-                  <p>Formal certification in building dashboards that communicate clearly to decision-makers, not just to other analysts.</p>
+                  <h4>Builds systems that hold up after the handoff</h4>
+                  <p>Every pipeline is built to run unattended, tested, and documented, so your team can maintain it without needing the person who built it on call.</p>
                 </div>
               </div>
               <div className="credential">
-                <div className="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#1E7E78" strokeWidth="1.5"/><path d="M10 6v4l3 2" stroke="#1E7E78" strokeWidth="1.5" strokeLinecap="round"/></svg></div>
+                <div className="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><circle cx="6" cy="6" r="2.5" stroke="#1E7E78" strokeWidth="1.6"/><circle cx="14" cy="14" r="2.5" stroke="#1E7E78" strokeWidth="1.6"/><path d="M8 8l4 4" stroke="#1E7E78" strokeWidth="1.6"/></svg></div>
                 <div>
-                  <h4>Six years of applied analytics</h4>
-                  <p>Experience spanning operations reporting, project coordination, and AI model evaluation, including eliminating over 10 hours of weekly manual reporting for a prior client through automation.</p>
+                  <h4>Translates between the business and the data</h4>
+                  <p>Sits in the room for the &quot;what does revenue actually mean&quot; conversation, then builds the model that reflects the answer, so nothing gets lost between the meeting and the dashboard.</p>
                 </div>
               </div>
             </div>
@@ -816,6 +875,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== Resources / Insights ===== */}
+      <section className="section" id="insights">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="section-eyebrow">Insights</span>
+            <h2>Start with the problem, not the dashboard</h2>
+            <p>A few short reads on why data trust breaks down, and what it actually takes to fix it.</p>
+          </div>
+          <div className="resources-grid">
+            <Link href="/resources/dashboard-isnt-the-problem" className="resource-card">
+              <div className="resource-category">Data Foundations</div>
+              <h3>Why Your Dashboard Isn&apos;t the Problem</h3>
+              <p>Most companies think they have a dashboard problem. Usually, the real issue is that different teams are measuring the same business concepts in different ways.</p>
+              <span className="resource-read">Read article →</span>
+            </Link>
+            <Link href="/resources/signs-no-single-source-of-truth" className="resource-card">
+              <div className="resource-category">Data Strategy</div>
+              <h3>Five Signs Your Company Doesn&apos;t Have a Single Source of Truth</h3>
+              <p>The warning signs that reporting problems are actually foundation problems.</p>
+              <span className="resource-read">Read article →</span>
+            </Link>
+            <Link href="/resources/preparing-data-for-ai" className="resource-card">
+              <div className="resource-category">AI Readiness</div>
+              <h3>Preparing Your Data for AI Before You Buy AI Tools</h3>
+              <p>AI systems depend on reliable context. Learn what needs to exist before expecting accurate answers.</p>
+              <span className="resource-read">Read article →</span>
+            </Link>
+          </div>
+          <div className="resources-footer">
+            <Link href="/resources" className="btn-secondary-link">View all articles →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Process ===== */}
       <section className="section section-alt" id="process">
         <div className="wrap">
           <div className="section-head">
@@ -848,6 +942,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== Why Canonica Data ===== */}
       <section className="why" id="why">
         <div className="wrap">
           <div className="section-head">
@@ -880,46 +975,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" id="work">
-        <div className="wrap">
-          <div className="section-head">
-            <span className="section-eyebrow">Proof of work</span>
-            <h2>Built, not just proposed</h2>
-            <p>An example of the same approach applied end to end, from raw data to a live dashboard.</p>
-          </div>
-          <div className="case-study">
-            <div>
-              <span className="case-tag">Case study</span>
-              <h3>GitHub Trend Tracker</h3>
-              <p className="desc">A fully automated system that tracks 400+ repositories across the AI and data engineering space, refreshing itself every day with no manual work, built to demonstrate exactly the kind of reliable, end-to-end system Canonica Data builds for clients.</p>
-              <div className="case-stats">
-                <div>
-                  <div className="case-stat-num">400+</div>
-                  <div className="case-stat-label">Repositories tracked</div>
-                </div>
-                <div>
-                  <div className="case-stat-num">Daily</div>
-                  <div className="case-stat-label">Automatic refresh</div>
-                </div>
-                <div>
-                  <div className="case-stat-num">Zero</div>
-                  <div className="case-stat-label">Manual upkeep</div>
-                </div>
-              </div>
-            </div>
-            <div className="case-diagram">
-              <div className="flow-step"><span className="dot"></span>Data pulled in automatically every day</div>
-              <div className="flow-arrow">↓</div>
-              <div className="flow-step"><span className="dot"></span>Organized into a clean, trusted structure</div>
-              <div className="flow-arrow">↓</div>
-              <div className="flow-step"><span className="dot"></span>History tracked, so nothing gets overwritten</div>
-              <div className="flow-arrow">↓</div>
-              <div className="flow-step"><span className="dot"></span>Delivered to a live, always-current dashboard</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* ===== Tech Stack ===== */}
       <section className="section section-alt" id="stack">
         <div className="wrap">
           <div className="section-head">
@@ -1014,6 +1070,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== Contact ===== */}
       <section className="section section-alt" id="contact">
         <div className="wrap">
           <div className="contact-grid">
@@ -1027,7 +1084,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section faq-section">
+      {/* ===== FAQ ===== */}
+      <section className="section faq-section" id="faq">
         <div className="wrap">
           <div className="section-head">
             <span className="section-eyebrow">Common Questions</span>
