@@ -1,7 +1,5 @@
 import Navbar from "../components/Navbar";
 import Link from "next/link";
-import Link from "next/link";
-import Navbar from "../components/Navbar";
 import styles from "./resources.module.css";
 
 export default function ResourcesPage() {
