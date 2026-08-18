@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resources | Canonica Data</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+
+--navy-950:#071427;
+--navy-900:#0B1E3D;
+--navy-800:#123059;
+--navy-700:#1B3A6B;
+
+--teal-500:#2FA8A0;
+--teal-600:#1E7E78;
+
+--blue-500:#3B6EA5;
+
+--gray-50:#F6F8FA;
+--gray-100:#EEF1F5;
+--gray-200:#E1E6EC;
+--gray-400:#9AA6B4;
+--gray-600:#5C6B7A;
+
+--white:#FFFFFF;
+
+--radius:16px;
+
+}
+
+
+* {
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+body {
+
+font-family:'Inter',sans-serif;
+color:var(--navy-900);
+background:white;
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+
+}
+
+
+
+h1,h2,h3 {
+
+font-family:'Space Grotesk',sans-serif;
+font-weight:600;
+letter-spacing:-0.02em;
+
+}
+
+
+.wrap {
+
+max-width:1180px;
+margin:auto;
+padding:0 40px;
+
+}
+
+
+
+/* ================= NAV ================= */
+
+
+nav {
+
+height:76px;
+border-bottom:1px solid var(--gray-200);
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(10px);
+
+position:sticky;
+top:0;
+z-index:50;
+
+}
+
+
+.nav-inner {
+
+height:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+}
+
+
+.brand {
+
+font-family:'Space Grotesk';
+font-size:19px;
+font-weight:600;
+color:var(--navy-900);
+
+}
+
+
+.nav-links {
+
+display:flex;
+gap:35px;
+
+}
+
+
+.nav-links a {
+
+text-decoration:none;
+color:var(--navy-800);
+font-size:14px;
+font-weight:500;
+
+}
+
+
+.nav-links a:hover {
+
+color:var(--teal-600);
+
+}
+
+
+
+.nav-btn {
+
+background:var(--navy-900);
+color:white;
+
+padding:12px 24px;
+
+border-radius:9px;
+
+text-decoration:none;
+
+font-size:14px;
+font-weight:500;
+
+box-shadow:0 10px 25px -12px rgba(11,30,61,.5);
+
+transition:.2s;
+
+}
+
+
+.nav-btn:hover {
+
+background:var(--navy-800);
+transform:translateY(-1px);
+
+}
+
+
+
+/* ================= HERO ================= */
+
+
+.hero {
+
+padding:95px 0 85px;
+
+background:
+linear-gradient(
+180deg,
+var(--gray-50),
+white
+);
+
+}
+
+
+.hero-label {
+
+font-family:'IBM Plex Mono';
+font-size:12px;
+letter-spacing:.1em;
+text-transform:uppercase;
+
+color:var(--teal-600);
+
+margin-bottom:24px;
+
+}
+
+
+.hero h1 {
+
+font-size:56px;
+max-width:850px;
+line-height:1.1;
+
+margin-bottom:25px;
+
+}
+
+
+.hero h1 span {
+
+background:
+linear-gradient(
+100deg,
+var(--navy-800),
+var(--teal-600)
+);
+
+-webkit-background-clip:text;
+color:transparent;
+
+}
+
+
+.hero p {
+
+max-width:720px;
+
+font-size:20px;
+
+color:var(--gray-600);
+
+}
+
+
+
+
+/* ================= FEATURED ================= */
+
+
+.section {
+
+padding:90px 0;
+
+}
+
+
+.section-header {
+
+max-width:700px;
+margin-bottom:50px;
+
+}
+
+
+.section-label {
+
+font-family:'IBM Plex Mono';
+
+font-size:12px;
+
+text-transform:uppercase;
+
+letter-spacing:.1em;
+
+color:var(--teal-600);
+
+margin-bottom:14px;
+
+}
+
+
+.section-header h2 {
+
+font-size:36px;
+
+margin-bottom:15px;
+
+}
+
+
+.section-header p {
+
+color:var(--gray-600);
+
+font-size:17px;
+
+}
+
+
+
+
+.feature-card {
+
+border:1px solid var(--gray-200);
+
+border-radius:20px;
+
+padding:45px;
+
+display:grid;
+
+grid-template-columns:1fr 300px;
+
+gap:50px;
+
+background:white;
+
+box-shadow:
+0 20px 45px -30px rgba(11,30,61,.3);
+
+}
+
+
+
+.feature-tag {
+
+display:inline-block;
+
+font-family:'IBM Plex Mono';
+
+font-size:12px;
+
+color:var(--teal-600);
+
+background:rgba(47,168,160,.1);
+
+padding:6px 12px;
+
+border-radius:100px;
+
+margin-bottom:20px;
+
+}
+
+
+.feature-card h3 {
+
+font-size:30px;
+
+margin-bottom:15px;
+
+}
+
+
+.feature-card p {
+
+color:var(--gray-600);
+
+font-size:16px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.read-link {
+
+text-decoration:none;
+
+font-weight:500;
+
+color:var(--navy-900);
+
+}
+
+
+
+.read-link:hover {
+
+color:var(--teal-600);
+
+}
+
+
+
+.feature-side {
+
+background:var(--gray-50);
+
+border-radius:14px;
+
+padding:28px;
+
+}
+
+
+
+.feature-side strong {
+
+display:block;
+
+font-family:'IBM Plex Mono';
+
+font-size:13px;
+
+margin-bottom:12px;
+
+color:var(--navy-800);
+
+}
+
+
+.feature-side p {
+
+font-size:14px;
+
+margin-bottom:12px;
+
+}
+
+
+
+/* ================= RESOURCE GRID ================= */
+
+
+.resources {
+
+background:var(--gray-50);
+
+}
+
+
+.resource-grid {
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:22px;
+
+}
+
+
+.resource-card {
+
+background:white;
+
+border:1px solid var(--gray-200);
+
+border-radius:14px;
+
+padding:28px;
+
+transition:.2s;
+
+}
+
+
+
+.resource-card:hover {
+
+transform:translateY(-4px);
+
+border-color:var(--teal-500);
+
+box-shadow:
+0 18px 35px -20px rgba(11,30,61,.25);
+
+}
+
+
+.resource-category {
+
+font-family:'IBM Plex Mono';
+
+font-size:11px;
+
+color:var(--teal-600);
+
+text-transform:uppercase;
+
+letter-spacing:.08em;
+
+margin-bottom:15px;
+
+}
+
+
+.resource-card h3 {
+
+font-size:20px;
+
+margin-bottom:12px;
+
+}
+
+
+.resource-card p {
+
+font-size:14.5px;
+
+color:var(--gray-600);
+
+margin-bottom:20px;
+
+}
+
+
+.resource-card a {
+
+text-decoration:none;
+
+color:var(--navy-900);
+
+font-size:14px;
+
+font-weight:500;
+
+}
+
+.resource-card a:hover {
+
+color:var(--teal-600);
+
+}
+
+
+
+/* ================= RESOURCE PAGE CONTENT ================= */
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<nav>
+
+<div class="wrap nav-inner">
+
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<div class="nav-links">
+
+<a href="#">Services</a>
+<a href="#">About</a>
+<a href="#">Work</a>
+<a href="#">Resources</a>
+<a href="#">Contact</a>
+
+</div>
+
+
+<a href="#" class="nav-btn">
+Start a conversation
+</a>
+
+
+</div>
+
+</nav>
+
+
+
+
+<section class="hero">
+
+
+<div class="wrap">
+
+
+<div class="hero-label">
+Knowledge Center · Data Strategy · Analytics Engineering
+</div>
+
+
+<h1>
+Building the foundation behind <span>trusted data.</span>
+</h1>
+
+
+<p>
+Practical guidance on data engineering, analytics, and AI readiness —
+designed to help organizations understand their data problems before
+investing in more tools.
+</p>
+
+
+</div>
+
+</section>
+
+
+
+
+<section class="section">
+
+
+<div class="wrap">
+
+
+<div class="section-header">
+
+<div class="section-label">
+Featured Resource
+</div>
+
+
+<h2>
+Start with the problem behind the dashboard.
+</h2>
+
+
+<p>
+The most successful data initiatives begin by understanding why trust
+breaks down — not by immediately building another report.
+</p>
+
+
+</div>
+
+
+
+
+<div class="feature-card">
+
+
+<div>
+
+
+<div class="feature-tag">
+Data Foundations
+</div>
+
+
+<h3>
+Why Your Dashboard Isn't the Problem
+</h3>
+
+
+<p>
+Most companies think they have a dashboard problem.
+Usually, the real issue is that different teams are measuring the same
+business concepts in different ways.
+</p>
+
+
+<p>
+Learn why trusted analytics starts with shared definitions,
+reliable models, and a single foundation everyone can use.
+</p>
+
+
+<a href="#" class="read-link">
+Read article →
+</a>
+
+
+</div>
+
+
+
+<div class="feature-side">
+
+
+<strong>
+Key concepts
+</strong>
+
+
+<p>
+✓ Business definitions</p>
+
+<p>
+✓ Single source of truth</p>
+
+<p>
+✓ Data modeling</p>
+
+<p>
+✓ Analytics trust</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="section resources">
+
+
+<div class="wrap">
+
+
+<div class="section-header">
+
+
+<div class="section-label">
+All Resources
+</div>
+
+
+<h2>
+Insights for building reliable data systems.
+</h2>
+
+
+<p>
+Explore practical explanations of the concepts that make analytics,
+reporting, and AI initiatives successful.
+</p>
+
+
+</div>
+
+
+
+
+<div class="resource-grid">
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Data Foundations
+</div>
+
+<h3>
+What "Canonical Data" Actually Means
+</h3>
+
+<p>
+Why organizations need shared definitions and trusted business logic
+before analytics can truly scale.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+AI Readiness
+</div>
+
+<h3>
+Preparing Your Data for AI Before You Buy AI Tools
+</h3>
+
+<p>
+AI systems depend on reliable context. Learn what needs to exist
+before expecting accurate answers.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Data Strategy
+</div>
+
+<h3>
+Five Signs Your Company Doesn't Have a Single Source of Truth
+</h3>
+
+<p>
+The warning signs that reporting problems are actually foundation
+problems.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Business Alignment
+</div>
+
+<h3>
+Why Data Engineering Is Really About Business Decisions
+</h3>
+
+<p>
+The goal of engineering data is not moving information.
+It is creating better decisions.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Analytics Operations
+</div>
+
+<h3>
+The Hidden Cost of Spreadsheet Reporting
+</h3>
+
+<p>
+How manual reporting creates hidden risk, duplicated effort,
+and inconsistent business logic.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Consulting Process
+</div>
+
+<h3>
+How We Run Discovery Before Writing Code
+</h3>
+
+<p>
+Why understanding the business comes before designing pipelines,
+models, or dashboards.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Data Engineering
+</div>
+
+<h3>
+What Makes a Data Pipeline Reliable?
+</h3>
+
+<p>
+The principles behind pipelines that organizations can actually
+depend on.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Data Modeling
+</div>
+
+<h3>
+Dimensional Modeling Explained Without the Jargon
+</h3>
+
+<p>
+A practical explanation of how modern analytics models organize
+business information.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+
+<div class="resource-card">
+
+<div class="resource-category">
+Analytics Engineering
+</div>
+
+<h3>
+What Is a Semantic Layer, and Why Should You Care?
+</h3>
+
+<p>
+How semantic layers create consistency between dashboards,
+applications, and AI systems.
+</p>
+
+<a href="#">
+Read article →
+</a>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section style="
+background:#071427;
+padding:100px 0;
+color:white;
+">
+
+
+<div class="wrap">
+
+
+<div style="max-width:720px;">
+
+
+<div class="section-label" style="color:#2FA8A0;">
+The Canonica Principle
+</div>
+
+
+<h2 style="
+font-family:'Space Grotesk';
+font-size:38px;
+margin-bottom:25px;
+color:white;
+">
+
+Technology works better when the foundation is trusted.
+
+</h2>
+
+
+<p style="
+font-size:18px;
+color:rgba(255,255,255,.7);
+margin-bottom:20px;
+">
+
+Dashboards, pipelines, and AI systems all depend on the same thing:
+a shared understanding of the business.
+
+</p>
+
+
+<p style="
+font-size:18px;
+color:rgba(255,255,255,.7);
+">
+
+One definition.
+One trusted foundation.
+Better decisions.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="section">
+
+
+<div class="wrap">
+
+
+<div style="
+background:#F6F8FA;
+border-radius:20px;
+padding:55px;
+text-align:center;
+">
+
+
+<h2 style="
+font-size:36px;
+margin-bottom:18px;
+">
+
+Ready to build a stronger data foundation?
+
+</h2>
+
+
+<p style="
+max-width:600px;
+margin:0 auto 30px;
+color:#5C6B7A;
+font-size:17px;
+">
+
+Start by understanding where trust breaks down today.
+Before another dashboard. Before another tool. Before another AI initiative.
+
+</p>
+
+
+<a href="#" class="nav-btn">
+
+Start a conversation →
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<footer>
+
+
+<div class="wrap" style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:35px 40px;
+border-top:1px solid #E1E6EC;
+">
+
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<p style="
+color:#5C6B7A;
+font-size:14px;
+">
+
+canonicadata.com · © 2026
+
+</p>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canonica Data — Trusted data foundations for analytics and AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-950: #071427;
+    --navy-900: #0B1E3D;
+    --navy-800: #123059;
+    --navy-700: #1B3A6B;
+    --blue-500: #3B6EA5;
+    --blue-400: #5C8BC0;
+    --teal-500: #2FA8A0;
+    --teal-600: #1E7E78;
+    --gray-50: #F6F8FA;
+    --gray-100: #EEF1F5;
+    --gray-200: #E1E6EC;
+    --gray-400: #9AA6B4;
+    --gray-600: #5C6B7A;
+    --white: #FFFFFF;
+    --radius: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+ body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--navy-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Geist', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--navy-900);
+}
+
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--navy-900);
+  }
+  .brand-mark {
+    width: 30px; height: 30px;
+    flex-shrink: 0;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+  }
+  nav ul a {
+    text-decoration: none;
+    color: var(--navy-800);
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  nav ul a:hover { color: var(--teal-600); }
+  .nav-cta {
+    background: var(--navy-900);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.15s ease;
+  }
+  .nav-cta:hover { background: var(--navy-800); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 108px 0 96px;
+    background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+  }
+  .hero .wrap {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 24px;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--teal-600);
+    background: rgba(47,168,160,0.09);
+    border: 1px solid rgba(47,168,160,0.25);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal-500);
+  }
+  .hero h1 {
+    font-size: 52px;
+    line-height: 1.09;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 span {
+    background: linear-gradient(100deg, var(--navy-800), var(--teal-600));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.lede {
+    font-size: 18px;
+    color: var(--gray-600);
+    max-width: 470px;
+    margin-bottom: 36px;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy-900);
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 8px 20px -8px rgba(11,30,61,0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px -8px rgba(11,30,61,0.5);
+  }
+  .btn-secondary-link {
+    color: var(--navy-800);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--gray-400);
+    padding-bottom: 2px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-secondary-link:hover { color: var(--teal-600); border-color: var(--teal-600); }
+
+  .hero-visual {
+    position: relative;
+    height: 460px;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .section { padding: 100px 0; }
+  .section-alt { background: var(--gray-50); }
+
+  .section-head {
+    max-width: 620px;
+    margin-bottom: 56px;
+  }
+  .section-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--teal-600);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .section-head h2 {
+    font-size: 34px;
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+  }
+  .section-head p {
+    color: var(--gray-600);
+    font-size: 16.5px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 32px 26px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .service-card:hover {
+    border-color: var(--teal-500);
+    box-shadow: 0 16px 32px -16px rgba(11,30,61,0.18);
+    transform: translateY(-3px);
+  }
+  .service-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--navy-800), var(--teal-600));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .service-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .service-card p {
+    font-size: 14.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ---------- WHY (dark band) ---------- */
+  .why {
+    background: var(--navy-950);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(47,168,160,0.14), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(59,110,165,0.16), transparent 45%);
+    color: var(--white);
+    padding: 100px 0;
+  }
+  .why .section-head p { color: rgba(255,255,255,0.62); }
+  .why .section-head h2 { color: var(--white); }
+  .why .section-eyebrow { color: var(--teal-500); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .why-item {
+    background: var(--navy-950);
+    padding: 34px 26px;
+  }
+  .why-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--teal-500);
+    margin-bottom: 18px;
+    display: block;
+  }
+  .why-item h3 {
+    color: var(--white);
+    font-size: 16.5px;
+    margin-bottom: 10px;
+  }
+  .why-item p {
+    color: rgba(255,255,255,0.58);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ---------- STACK ---------- */
+  .stack-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .stack-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy-800);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: 12px 20px;
+    border-radius: 9px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .stack-badge:hover {
+    border-color: var(--teal-500);
+    background: rgba(47,168,160,0.06);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .contact-copy h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+    letter-spacing: -0.015em;
+  }
+  .contact-copy p {
+    color: var(--gray-600);
+    font-size: 16px;
+    margin-bottom: 28px;
+    max-width: 380px;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14.5px;
+    color: var(--navy-800);
+    margin-bottom: 14px;
+  }
+  .contact-detail .mono { color: var(--gray-600); }
+
+  .contact-form {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: 0 24px 48px -24px rgba(11,30,61,0.16);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy-800);
+  }
+  .field input, .field textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    padding: 12px 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    background: var(--gray-50);
+    color: var(--navy-900);
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .field input:focus, .field textarea:focus {
+    border-color: var(--teal-500);
+    background: var(--white);
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .form-submit {
+    width: 100%;
+    margin-top: 6px;
+    background: var(--navy-900);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .form-submit:hover { background: var(--navy-800); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--gray-200);
+    padding: 36px 0;
+  }
+  footer .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer .brand { font-size: 15px; }
+  footer .brand-mark { width: 22px; height: 22px; }
+  footer p.tag {
+    color: var(--gray-600);
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero-visual { height: 300px; order: -1; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    .hero h1 { font-size: 38px; }
+  }  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-copy p {
+    color: var(--gray-600);
+    font-size: 16px;
+    margin-bottom: 18px;
+    max-width: 440px;
+  }
+  .credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .credential {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--gray-200);
+  }
+  .credential:first-child { border-top: none; padding-top: 0; }
+  .credential-mark {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: rgba(47,168,160,0.09);
+    border: 1px solid rgba(47,168,160,0.25);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .credential h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 4px;
+  }
+  .credential p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+  }
+  .process-track::before {
+    content: "";
+    position: absolute;
+    top: 21px;
+    left: 6%;
+    right: 6%;
+    height: 1px;
+    background: var(--gray-200);
+    z-index: 0;
+  }
+  .process-step { position: relative; z-index: 1; }
+  .process-step-num {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1.5px solid var(--navy-900);
+    color: var(--navy-900);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .process-step h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .process-step p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ---------- CASE STUDY ---------- */
+  .case-study {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 20px;
+    padding: 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .case-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--teal-600);
+    background: rgba(47,168,160,0.09);
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  .case-study h3 {
+    font-size: 26px;
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+  }
+  .case-study p.desc {
+    color: var(--gray-600);
+    font-size: 15.5px;
+    margin-bottom: 26px;
+  }
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .case-stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--navy-900);
+  }
+  .case-stat-label {
+    font-size: 12.5px;
+    color: var(--gray-600);
+    margin-top: 2px;
+  }
+  .case-diagram {
+    background: var(--gray-50);
+    border-radius: 14px;
+    padding: 32px 24px;
+  }
+  .flow-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--navy-800);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .flow-step .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal-500); flex-shrink: 0; }
+  .flow-arrow {
+    text-align: center;
+    color: var(--gray-400);
+    font-size: 13px;
+    margin: 2px 0 2px 20px;
+  }
+
+  /* ---------- STACK (expanded) ---------- */
+  .stack-category {
+    margin-bottom: 36px;
+  }
+  .stack-category:last-child { margin-bottom: 0; }
+  .stack-category-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .stack-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .stack-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .stack-card:hover {
+    border-color: var(--teal-500);
+    box-shadow: 0 12px 24px -14px rgba(11,30,61,0.16);
+  }
+  .stack-card-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy-900);
+    margin-bottom: 6px;
+  }
+  .stack-card-desc {
+    font-size: 12.5px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .process-track { grid-template-columns: repeat(2, 1fr); }
+    .process-track::before { display: none; }
+    .case-study { grid-template-columns: 1fr; padding: 32px; }
+    .case-stats { grid-template-columns: repeat(3, 1fr); }
+    .stack-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .stack-cards { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 100 100" fill="none">
+        <path d="M50 6 L88 27 V73 L50 94 L12 73 V27 Z" stroke="#0B1E3D" stroke-width="4" fill="none"/>
+        <circle cx="50" cy="50" r="7" fill="#2FA8A0"/>
+        <circle cx="26" cy="34" r="4" fill="#1B3A6B"/>
+        <circle cx="74" cy="34" r="4" fill="#1B3A6B"/>
+        <circle cx="26" cy="66" r="4" fill="#1B3A6B"/>
+        <circle cx="74" cy="66" r="4" fill="#1B3A6B"/>
+        <line x1="50" y1="50" x2="26" y2="34" stroke="#9AA6B4" stroke-width="2"/>
+        <line x1="50" y1="50" x2="74" y2="34" stroke="#9AA6B4" stroke-width="2"/>
+        <line x1="50" y1="50" x2="26" y2="66" stroke="#9AA6B4" stroke-width="2"/>
+        <line x1="50" y1="50" x2="74" y2="66" stroke="#9AA6B4" stroke-width="2"/>
+      </svg>
+      Canonica Data
+    </div>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Start a conversation</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Data engineering &amp; analytics consulting</div>
+      <h1>One number. <br />
+        <span>Everyone trusts it.</span></h1>
+      <p class="lede">Canonica Data builds the pipelines, models, and reporting foundations that make your company's numbers reliable - so your team spends meetings making decisions, not debating whose spreadsheet is right.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Start a conversation
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#services" class="btn-secondary-link">See services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 480 460" width="100%" height="100%" style="overflow:visible">
+        <defs>
+          <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#2FA8A0" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#2FA8A0" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <line x1="240" y1="230" x2="80" y2="90" stroke="#D6DEE7" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="240" y1="230" x2="400" y2="70" stroke="#D6DEE7" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="240" y1="230" x2="60" y2="300" stroke="#D6DEE7" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="240" y1="230" x2="410" y2="340" stroke="#D6DEE7" stroke-width="1.5"/>
+        <line x1="240" y1="230" x2="150" y2="410" stroke="#D6DEE7" stroke-width="1.5"/>
+        <line x1="240" y1="230" x2="330" y2="410" stroke="#D6DEE7" stroke-width="1.5"/>
+        <line x1="410" y1="340" x2="400" y2="70" stroke="#E7ECF1" stroke-width="1.2"/>
+        <line x1="150" y1="410" x2="60" y2="300" stroke="#E7ECF1" stroke-width="1.2"/>
+
+        <circle cx="240" cy="230" r="60" fill="url(#nodeGlow)"/>
+        <circle cx="240" cy="230" r="17" fill="#0B1E3D"/>
+        <circle cx="240" cy="230" r="17" fill="none" stroke="#2FA8A0" stroke-width="2.5"/>
+
+        <circle cx="80" cy="90" r="7" fill="#9AA6B4" opacity="0.7"/>
+        <circle cx="400" cy="70" r="6" fill="#9AA6B4" opacity="0.6"/>
+        <circle cx="60" cy="300" r="6" fill="#9AA6B4" opacity="0.6"/>
+        <circle cx="410" cy="340" r="9" fill="#3B6EA5"/>
+        <circle cx="150" cy="410" r="8" fill="#3B6EA5"/>
+        <circle cx="330" cy="410" r="7" fill="#9AA6B4" opacity="0.7"/>
+
+        <rect x="215" y="205" width="50" height="50" rx="10" fill="none" stroke="#2FA8A0" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Services</span>
+      <h2>Four problems, one root cause</h2>
+      <p>Slow reporting, conflicting numbers, teams that don't trust the dashboard, and AI tools that hallucinate - they usually all trace back to the same thing: the data underneath was never built to be relied on. Here's how that gets fixed.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 5h16M2 10h16M2 15h10" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Data engineering</h3>
+        <p>The plumbing that gets information from your tools and systems into one reliable place automatically - no more manual spreadsheet exports.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="6" cy="6" r="2.5" stroke="white" stroke-width="1.6"/><circle cx="14" cy="14" r="2.5" stroke="white" stroke-width="1.6"/><path d="M8 8l4 4" stroke="white" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Analytics engineering</h3>
+        <p>Turning raw data into agreed-upon business definitions - one version of "revenue," one version of "active customer" - used consistently everywhere.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16V9M10 16V4M16 16v-6" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Data strategy</h3>
+        <p>Working with your team before any building starts, to surface the gaps and disagreements that cause bad numbers later - cheaper to catch now than after launch.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="6" height="6" rx="1.5" stroke="white" stroke-width="1.6"/><rect x="11" y="11" width="6" height="6" rx="1.5" stroke="white" stroke-width="1.6"/><path d="M9 6h5v5" stroke="white" stroke-width="1.6"/></svg>
+        </div>
+        <h3>AI-ready data</h3>
+        <p>Preparing your company's data so AI tools and assistants give accurate, grounded answers - instead of confidently making things up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-copy">
+        <span class="section-eyebrow">About</span>
+        <h2 style="font-size:32px;margin-bottom:18px;letter-spacing:-0.015em;">Six years in analytics. Built on engineering principles.</h2>
+        <p>Canonica Data is led by Devin Meunier, an analytics professional who has spent six years helping organizations turn fragmented reporting into reliable systems people can trust.</p>
+        <p>The work is built around a simple belief: most data problems are not dashboard problems. They are foundation problems - unclear definitions, disconnected systems, and numbers that mean something different to everyone.</p>
+        <p>Canonica Data helps organizations create the trusted data foundation their teams can build on.</p>
+      </div>
+      <div class="credentials">
+        <div class="credential">
+          <div class="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><path d="M10 2l7 3.5v5c0 4.5-3 7.5-7 8.5-4-1-7-4-7-8.5v-5L10 2z" stroke="#1E7E78" stroke-width="1.5"/></svg></div>
+          <div>
+            <h4>DataExpert.io certification</h4>
+            <p>Production-grade data engineering training under Zach Wilson - dimensional modeling, streaming pipelines, and pipeline reliability practices used by top tech companies.</p>
+          </div>
+        </div>
+        <div class="credential">
+          <div class="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="#1E7E78" stroke-width="1.5"/><path d="M6 10l3 3 5-6" stroke="#1E7E78" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4>Tableau Desktop Certified Professional</h4>
+            <p>Formal certification in building dashboards that communicate clearly to decision-makers, not just to other analysts.</p>
+          </div>
+        </div>
+        <div class="credential">
+          <div class="credential-mark"><svg width="17" height="17" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#1E7E78" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#1E7E78" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div>
+            <h4>Six years of applied analytics</h4>
+            <p>Experience spanning operations reporting, project coordination, and AI model evaluation - including eliminating over 10 hours of weekly manual reporting for a prior client through automation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Process</span>
+      <h2>Discovery before a single table gets built</h2>
+      <p>Most data projects fail quietly - not from bad code, but from building the wrong thing because nobody asked the right questions first. Every engagement starts by surfacing those questions.</p>
+    </div>
+    <div class="process-track">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <h3>Discovery conversation</h3>
+        <p>A structured conversation about how your business actually defines success — revenue, growth, engagement - before assuming anything.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <h3>Align on definitions</h3>
+        <p>Surface the gaps and disagreements hiding in plain sight - the kind that cause two departments to report two different numbers.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <h3>Build the foundation</h3>
+        <p>Pipelines, models, and dashboards built to those agreed definitions - tested, documented, and built to last past the first demo.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <h3>Hand off with confidence</h3>
+        <p>Clear documentation and a system your team can maintain - not a black box only one person understands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Why Canonica Data</span>
+      <h2>Canonical, by design</h2>
+      <p>Every engagement is built around one idea - a single, trusted definition of the truth that every team and every model can rely on.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-num">01</span>
+        <h3>Trusted source of truth</h3>
+        <p>One definition of every metric, agreed on once and reused everywhere.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">02</span>
+        <h3>Clean data models</h3>
+        <p>Dimensional structures built for clarity, not just for today's dashboard.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">03</span>
+        <h3>Scalable architecture</h3>
+        <p>Systems designed to hold up as data volume and complexity grow.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">04</span>
+        <h3>Better decisions</h3>
+        <p>Leadership teams that trust the number stop debating the number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Proof of work</span>
+      <h2>Built, not just proposed</h2>
+      <p>An example of the same approach applied end to end, from raw data to a live dashboard.</p>
+    </div>
+    <div class="case-study">
+      <div>
+        <span class="case-tag">Case study</span>
+        <h3>GitHub Trend Tracker</h3>
+        <p class="desc">A fully automated system that tracks repositories across the AI and data engineering space, refreshing itself every day with no manual work — built to demonstrate exactly the kind of reliable, end-to-end system Canonica Data builds for clients.</p>
+        <div class="case-stats">
+          <div>
+            <div class="case-stat-num">400+</div>
+            <div class="case-stat-label">Repositories tracked</div>
+          </div>
+          <div>
+            <div class="case-stat-num">Daily</div>
+            <div class="case-stat-label">Automatic refresh</div>
+          </div>
+          <div>
+            <div class="case-stat-num">Zero</div>
+            <div class="case-stat-label">Manual upkeep</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-diagram">
+        <div class="flow-step"><span class="dot"></span>Data pulled in automatically every day</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><span class="dot"></span>Organized into a clean, trusted structure</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><span class="dot"></span>History tracked, so nothing gets overwritten</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step"><span class="dot"></span>Delivered to a live, always-current dashboard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-eyebrow">Technology</span>
+      <h2>A modern, proven stack</h2>
+      <p>You don't need to know what any of this means - that's the point. Here's what each tool actually does for your business, in plain terms.</p>
+    </div>
+
+    <div class="stack-category">
+      <span class="stack-category-label">Moving and transforming data</span>
+      <div class="stack-cards">
+        <div class="stack-card">
+          <div class="stack-card-name">Python</div>
+          <div class="stack-card-desc">General-purpose programming used to automate tasks and connect different systems together.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">SQL</div>
+          <div class="stack-card-desc">The standard language for asking questions of business data - the foundation everything else is built on.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">dbt</div>
+          <div class="stack-card-desc">Turns raw data into clean, tested, reusable business definitions everyone can rely on.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Prefect</div>
+          <div class="stack-card-desc">Runs and monitors data workflows automatically, and flags it immediately if something breaks.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Apache Spark</div>
+          <div class="stack-card-desc">Processes very large volumes of data quickly, even at a scale a spreadsheet couldn't handle.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Databricks</div>
+          <div class="stack-card-desc">A cloud platform for running large-scale data and analytics work reliably.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack-category">
+      <span class="stack-category-label">Real-time data</span>
+      <div class="stack-cards">
+        <div class="stack-card">
+          <div class="stack-card-name">Apache Kafka</div>
+          <div class="stack-card-desc">Streams data the moment it happens, instead of waiting for an overnight batch update.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Apache Flink</div>
+          <div class="stack-card-desc">Processes streaming data continuously, enabling up-to-the-second dashboards and alerts.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Apache Iceberg &amp; Trino</div>
+          <div class="stack-card-desc">A modern data format that lets multiple tools safely read and write the same data without conflicts.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack-category">
+      <span class="stack-category-label">Storage and infrastructure</span>
+      <div class="stack-cards">
+        <div class="stack-card">
+          <div class="stack-card-name">AWS (S3, Glue, Athena, Redshift)</div>
+          <div class="stack-card-desc">Secure, scalable cloud storage and infrastructure your data lives on.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">PostgreSQL &amp; Supabase</div>
+          <div class="stack-card-desc">Reliable, well-tested database infrastructure for storing business data.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Docker</div>
+          <div class="stack-card-desc">Packages software so it runs consistently, whether on a laptop or in the cloud.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Git &amp; GitHub</div>
+          <div class="stack-card-desc">Tracks every change safely, so nothing is ever lost and every update can be reviewed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack-category">
+      <span class="stack-category-label">Reporting and visibility</span>
+      <div class="stack-cards">
+        <div class="stack-card">
+          <div class="stack-card-name">Tableau <span style="color:var(--teal-600);">· certified</span></div>
+          <div class="stack-card-desc">Turns data into clear visual dashboards built for decision-makers, not just analysts.</div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-card-name">Streamlit</div>
+          <div class="stack-card-desc">Quickly builds simple, interactive internal tools and dashboards.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-copy">
+        <span class="section-eyebrow">Contact</span>
+        <h2>Let's build a foundation you can trust.</h2>
+        <p>Tell us about your data - where it lives today, and where it needs to go. We'll follow up within one business day.</p>
+      </div>
+      <form class="contact-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Jane Cooper">
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" type="text" placeholder="Acme Inc.">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field full">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="jane@acme.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field full">
+            <label for="message">What are you working on?</label>
+            <textarea id="message" placeholder="A short description of your data challenge."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 100 100" fill="none">
+        <path d="M50 6 L88 27 V73 L50 94 L12 73 V27 Z" stroke="#0B1E3D" stroke-width="4" fill="none"/>
+        <circle cx="50" cy="50" r="7" fill="#2FA8A0"/>
+      </svg>
+      Canonica Data
+    </div>
+    <p class="tag">canonicadata.com &nbsp;·&nbsp; © 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>

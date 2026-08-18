@@ -1,0 +1,256 @@
+
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--navy-900);
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: var(--navy-800);
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.navLinks a:hover,
+.navLinks .active {
+  color: var(--teal-600);
+}
+
+.navCta {
+  background: var(--navy-900);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.navCta:hover {
+  background: var(--navy-800);
+}
+
+/* HERO */
+
+.pageHero {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0 40px;
+  background: linear-gradient(
+    180deg,
+    var(--gray-50) 0%,
+    var(--white) 100%
+  );
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--teal-600);
+  background: rgba(47, 168, 160, 0.09);
+  border: 1px solid rgba(47, 168, 160, 0.25);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal-500);
+}
+
+.pageHero h1 {
+  font-size: 44px;
+  line-height: 1.12;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  color: var(--navy-900);
+}
+
+.lede {
+  font-size: 18px;
+  color: var(--gray-600);
+  max-width: 560px;
+  margin: 0;
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 80px 0;
+}
+
+.sectionAlt {
+  background: var(--gray-50);
+}
+
+.sectionEyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--teal-600);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* CONTACT */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contactCopy h2 {
+  font-size: 32px;
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  color: var(--navy-900);
+}
+
+.contactCopy > p {
+  color: var(--gray-600);
+  font-size: 16px;
+  margin: 0 0 28px;
+  max-width: 380px;
+}
+
+.contactDetail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  color: var(--navy-800);
+  margin-bottom: 14px;
+}
+
+.iconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(47, 168, 160, 0.09);
+  border: 1px solid rgba(47, 168, 160, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--gray-600);
+  font-size: 13px;
+}
+
+/*
+  The ContactForm component owns the actual
+  Formspree form styling.
+*/
+
+/* FOOTER */
+
+.footer {
+  border-top: 1px solid var(--gray-200);
+  padding: 36px 0;
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer .brand {
+  font-size: 15px;
+}
+
+.footer .brandMark {
+  width: 22px;
+  height: 22px;
+}
+
+.footerTag {
+  color: var(--gray-600);
+  font-size: 13.5px;
+  margin: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .pageHero h1 {
+    font-size: 34px;
+  }
+
+  .wrap {
+    padding: 0 25px;
+  }
+}

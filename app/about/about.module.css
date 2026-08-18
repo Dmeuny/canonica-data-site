@@ -1,0 +1,514 @@
+.aboutPage {
+  color: #0B1E3D;
+  background: #FFFFFF;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.aboutPage h1,
+.aboutPage h2,
+.aboutPage h3,
+.aboutPage h4 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #0B1E3D;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ---------- NAV ---------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #E1E6EC;
+}
+
+.nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 19px;
+  color: #0B1E3D;
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+}
+
+.nav ul a {
+  text-decoration: none;
+  color: #123059;
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nav ul a:hover,
+.nav ul a.active {
+  color: #1E7E78;
+}
+
+.navCta {
+  background: #0B1E3D;
+  color: #FFFFFF;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.navCta:hover {
+  background: #123059;
+}
+
+/* ---------- PAGE HERO ---------- */
+
+.pageHero {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0 40px;
+  background: linear-gradient(
+    180deg,
+    #F6F8FA 0%,
+    #FFFFFF 100%
+  );
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #1E7E78;
+  background: rgba(47, 168, 160, 0.09);
+  border: 1px solid rgba(47, 168, 160, 0.25);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2FA8A0;
+}
+
+.pageHero h1 {
+  font-size: 44px;
+  line-height: 1.12;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+}
+
+.lede {
+  font-size: 18px;
+  color: #5C6B7A;
+  max-width: 560px;
+}
+
+/* ---------- SECTIONS ---------- */
+
+.section {
+  padding: 80px 0;
+}
+
+.sectionAlt {
+  background: #F6F8FA;
+}
+
+.sectionHead {
+  max-width: 620px;
+  margin-bottom: 56px;
+}
+
+.sectionEyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #1E7E78;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.sectionHead h2 {
+  font-size: 34px;
+  margin-bottom: 14px;
+  letter-spacing: -0.015em;
+}
+
+.sectionHead p {
+  color: #5C6B7A;
+  font-size: 16.5px;
+}
+
+/* ---------- ABOUT ---------- */
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.aboutCopy p {
+  color: #5C6B7A;
+  font-size: 16px;
+  margin-bottom: 18px;
+  max-width: 440px;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.credential {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid #E1E6EC;
+}
+
+.credential:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.credentialMark {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(47, 168, 160, 0.09);
+  border: 1px solid rgba(47, 168, 160, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.credential h4 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.credential p {
+  font-size: 14px;
+  color: #5C6B7A;
+  line-height: 1.55;
+}
+
+/* ---------- PROCESS ---------- */
+
+.processTrack {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.processTrack::before {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: #E1E6EC;
+  z-index: 0;
+}
+
+.processStep {
+  position: relative;
+  z-index: 1;
+}
+
+.processStepNum {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid #0B1E3D;
+  color: #0B1E3D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.processStep h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.processStep p {
+  font-size: 14px;
+  color: #5C6B7A;
+  line-height: 1.6;
+}
+
+/* ---------- WHY ---------- */
+
+.why {
+  background: #071427;
+  background-image:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(47, 168, 160, 0.14),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(59, 110, 165, 0.16),
+      transparent 45%
+    );
+  color: #FFFFFF;
+  padding: 100px 0;
+}
+
+.why .sectionHead p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.why .sectionHead h2 {
+  color: #FFFFFF;
+}
+
+.why .sectionEyebrow {
+  color: #2FA8A0;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.whyItem {
+  background: #071427;
+  padding: 34px 26px;
+}
+
+.whyNum {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  color: #2FA8A0;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.whyItem h3 {
+  color: #FFFFFF;
+  font-size: 16.5px;
+  margin-bottom: 10px;
+}
+
+.whyItem p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---------- CTA ---------- */
+
+.ctaBand {
+  background: #FFFFFF;
+  border: 1px solid #E1E6EC;
+  border-radius: 20px;
+  padding: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.ctaBand h3 {
+  font-size: 26px;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+.ctaBand p {
+  color: #5C6B7A;
+  font-size: 15.5px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0B1E3D;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 15px 28px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 8px 20px -8px rgba(11, 30, 61, 0.45);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -8px rgba(11, 30, 61, 0.5);
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  border-top: 1px solid #E1E6EC;
+  padding: 36px 0;
+}
+
+.footer .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer .brand {
+  font-size: 15px;
+}
+
+.footer .brandMark {
+  width: 22px;
+  height: 22px;
+}
+
+.tag {
+  color: #5C6B7A;
+  font-size: 13.5px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .processTrack {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .processTrack::before {
+    display: none;
+  }
+
+  .whyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ctaBand {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav ul {
+    display: none;
+  }
+
+  .pageHero h1 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    padding: 0 22px;
+  }
+
+  .nav .wrap {
+    height: 68px;
+  }
+
+  .navCta {
+    display: none;
+  }
+
+  .pageHero {
+    padding: 64px 0 32px;
+  }
+
+  .pageHero h1 {
+    font-size: 32px;
+  }
+
+  .lede {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .sectionHead {
+    margin-bottom: 40px;
+  }
+
+  .sectionHead h2 {
+    font-size: 29px;
+  }
+
+  .processTrack,
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaBand {
+    padding: 34px 26px;
+  }
+
+  .footer .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}

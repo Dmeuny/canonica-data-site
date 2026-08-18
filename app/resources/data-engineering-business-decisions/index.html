@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Why Data Engineering Is Really About Business Decisions | Canonica Data</title>
+<meta name="description" content="The goal of engineering data is not moving information. It is creating better decisions. Here is what that means for how leaders should evaluate their data function.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+  --navy-950:#071427;
+  --navy-900:#0B1E3D;
+  --navy-800:#123059;
+  --blue-700:#1B3A6B;
+  --teal-500:#2FA8A0;
+  --teal-600:#1E7E78;
+
+  --gray-50:#F6F8FA;
+  --gray-100:#EEF1F5;
+  --gray-200:#E1E6EC;
+  --gray-600:#5C6B7A;
+
+  --white:#FFFFFF;
+}
+
+
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+
+body {
+ font-family:'Inter',sans-serif;
+ color:var(--navy-900);
+ line-height:1.7;
+ background:white;
+}
+
+
+h1,h2,h3 {
+ font-family:'Manrope',sans-serif;
+ font-weight:600;
+ letter-spacing:-0.025em;
+ line-height:1.15;
+}
+
+
+.wrap {
+ max-width:1180px;
+ margin:auto;
+ padding:0 40px;
+}
+
+
+/* NAV */
+
+nav {
+
+ height:76px;
+ border-bottom:1px solid var(--gray-200);
+ background:white;
+ position:sticky;
+ top:0;
+ z-index:20;
+
+}
+
+
+.nav-inner {
+
+ height:100%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+
+}
+
+
+.brand {
+
+ font-family:'Manrope';
+ font-weight:700;
+ font-size:20px;
+ color:var(--navy-900);
+
+}
+
+
+.nav-links {
+
+ display:flex;
+ gap:35px;
+
+}
+
+
+.nav-links a {
+
+ color:var(--navy-800);
+ text-decoration:none;
+ font-size:14px;
+
+}
+
+
+.nav-btn {
+
+ display:inline-flex;
+ align-items:center;
+
+ background:var(--navy-900);
+ color:white;
+
+ padding:12px 25px;
+ border-radius:9px;
+
+ text-decoration:none;
+ font-size:14px;
+ font-weight:600;
+
+ box-shadow:
+ 0 10px 25px -12px rgba(11,30,61,.45);
+
+ transition:.2s;
+
+}
+
+
+.nav-btn:hover {
+
+ background:var(--navy-800);
+ transform:translateY(-2px);
+
+}
+
+
+
+/* HERO */
+
+
+.hero {
+
+ background:
+ linear-gradient(
+ 180deg,
+ var(--gray-50),
+ white
+ );
+
+ padding:95px 0 90px;
+
+}
+
+
+.meta {
+
+ font-family:'IBM Plex Mono';
+ font-size:12px;
+ color:var(--teal-600);
+ letter-spacing:.08em;
+ text-transform:uppercase;
+ margin-bottom:30px;
+
+}
+
+
+.hero h1 {
+
+ font-size:58px;
+ max-width:900px;
+
+}
+
+
+.hero p {
+
+ margin-top:30px;
+ max-width:760px;
+
+ font-size:21px;
+ color:var(--gray-600);
+
+}
+
+
+.read-time {
+
+ margin-top:30px;
+
+ font-family:'IBM Plex Mono';
+ font-size:13px;
+
+ color:var(--gray-600);
+
+}
+
+
+
+/* ARTICLE */
+
+
+.article {
+
+ max-width:1180px;
+ margin:auto;
+
+ padding:80px 40px;
+
+}
+
+
+.summary {
+
+ background:
+ linear-gradient(
+ 135deg,
+ var(--navy-900),
+ var(--navy-800)
+ );
+
+ color:white;
+
+ padding:40px;
+
+ border-radius:18px;
+
+ margin-bottom:70px;
+
+ box-shadow:
+ 0 20px 50px -25px rgba(11,30,61,.4);
+
+}
+
+
+.summary h3 {
+
+ color:white;
+ font-size:23px;
+ margin-bottom:15px;
+
+}
+
+
+.summary p {
+
+ color:rgba(255,255,255,.82);
+
+}
+
+
+.article h2 {
+
+ font-size:36px;
+
+ margin:75px 0 25px;
+
+}
+
+
+.article p {
+
+ font-size:18px;
+
+ margin-bottom:24px;
+
+ max-width:900px;
+}
+
+
+.article strong {
+
+ font-weight:700;
+
+}
+
+
+.article ul {
+
+ margin:25px 0 35px 25px;
+
+ font-size:18px;
+
+ max-width:900px;
+}
+
+
+.article li {
+
+ margin-bottom:12px;
+
+}
+
+
+
+/* METRIC */
+
+
+.metric-box {
+
+ background:var(--gray-50);
+
+ border:1px solid var(--gray-200);
+
+ border-radius:16px;
+
+ padding:35px;
+
+ margin:40px 0;
+
+  max-width:900px;
+
+}
+
+
+.metric-box p {
+
+ margin:10px 0;
+
+}
+
+
+
+/* QUESTIONS SECTION */
+
+
+.questions-wrapper {
+
+ background:var(--navy-950);
+
+ margin-left:-40px;
+ margin-right:-40px;
+
+ padding:60px 40px;
+
+ border-radius:22px;
+
+}
+
+
+.questions-wrapper h2 {
+
+ color:white;
+
+ margin-top:0;
+
+}
+
+
+.questions-wrapper > p {
+
+ color:rgba(255,255,255,.75);
+
+}
+
+
+.questions {
+
+ display:grid;
+
+ grid-template-columns:1fr 1fr;
+
+ gap:24px;
+
+ margin-top:40px;
+
+}
+
+
+.question {
+
+ background:white;
+
+ border-radius:16px;
+
+ padding:28px;
+
+ border:1px solid rgba(255,255,255,.15);
+
+}
+
+
+.question h3 {
+
+ font-size:20px;
+
+ margin-bottom:15px;
+
+}
+
+
+.question p {
+
+ font-size:15px;
+
+ color:var(--gray-600);
+
+}
+
+
+.problem {
+
+ margin-top:15px;
+
+ background:var(--gray-50);
+
+ border-left:3px solid var(--teal-500);
+
+ padding:14px;
+
+ border-radius:8px;
+
+ font-size:14px;
+
+ color:var(--navy-800);
+
+}
+
+/* CANONICAL DATA SECTION */
+
+.canonical-section {
+
+ background:var(--gray-50);
+
+ margin-top:80px;
+
+ padding:70px 60px;
+
+ border-radius:22px;
+
+}
+
+
+.canonical-section h2 {
+
+ margin-top:0;
+
+}
+
+
+.canonical-section strong {
+
+ color:var(--teal-600);
+
+}
+
+
+.canonical-list {
+
+ display:grid;
+
+ grid-template-columns:1fr 1fr;
+
+ gap:18px;
+
+ margin-top:35px;
+
+}
+
+
+.canonical-item {
+
+ background:white;
+
+ border:1px solid var(--gray-200);
+
+ border-radius:14px;
+
+ padding:22px;
+
+ font-size:16px;
+
+}
+
+
+
+.process {
+
+ display:grid;
+
+ grid-template-columns:repeat(4,1fr);
+
+ gap:20px;
+
+ margin-top:45px;
+
+}
+
+
+.step {
+
+ border:1px solid var(--gray-200);
+
+ border-radius:16px;
+
+ padding:28px;
+
+ background:white;
+
+}
+
+
+.step span {
+
+ display:inline-flex;
+
+ width:38px;
+
+ height:38px;
+
+ align-items:center;
+
+ justify-content:center;
+
+ border-radius:50%;
+
+ background:var(--navy-900);
+
+ color:white;
+
+ font-family:'IBM Plex Mono';
+
+ font-size:13px;
+
+ margin-bottom:18px;
+
+}
+
+
+.step h3 {
+
+ font-size:19px;
+
+ margin-bottom:12px;
+
+}
+
+
+.step p {
+
+ font-size:15px;
+
+ color:var(--gray-600);
+
+}
+
+
+
+/* FINAL CTA */
+
+.cta {
+
+ margin-top:80px;
+
+ background:
+ linear-gradient(
+ 135deg,
+ var(--navy-950),
+ var(--blue-700)
+ );
+
+ color:white;
+
+ border-radius:22px;
+
+ padding:60px;
+
+ text-align:center;
+
+}
+
+
+.cta h2 {
+
+ color:white;
+
+ margin-top:0;
+
+ font-size:40px;
+
+}
+
+
+.cta p {
+
+ color:rgba(255,255,255,.8);
+
+ max-width:650px;
+
+ margin:20px auto;
+
+}
+
+
+.cta strong {
+
+ color:white;
+
+}
+
+
+.button {
+
+ display:inline-flex;
+
+ align-items:center;
+
+ justify-content:center;
+
+ margin-top:30px;
+
+ background:white;
+
+ color:var(--navy-900);
+
+ padding:15px 30px;
+
+ border-radius:10px;
+
+ text-decoration:none;
+
+ font-weight:600;
+
+ transition:.2s;
+
+}
+
+
+.button:hover {
+
+ transform:translateY(-2px);
+
+}
+
+
+
+/* FOOTER */
+
+footer {
+
+ border-top:1px solid var(--gray-200);
+
+ padding:35px 0;
+
+}
+
+
+footer .wrap {
+
+ display:flex;
+
+ justify-content:space-between;
+
+ align-items:center;
+
+}
+
+
+footer p {
+
+ color:var(--gray-600);
+
+ font-size:14px;
+
+}
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:900px){
+
+ .hero h1 {
+  font-size:42px;
+ }
+
+ .nav-links {
+  display:none;
+ }
+
+ .questions,
+ .canonical-list,
+ .process {
+  grid-template-columns:1fr;
+ }
+
+ .article {
+  padding:60px 25px;
+ }
+
+ .questions-wrapper {
+
+  margin-left:-25px;
+  margin-right:-25px;
+
+  padding:45px 25px;
+
+ }
+
+ .cta {
+
+  padding:40px 25px;
+
+ }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="wrap nav-inner">
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<div class="nav-links">
+
+<a href="#">Services</a>
+<a href="#">About</a>
+<a href="#">Work</a>
+<a href="#">Resources</a>
+<a href="#">Contact</a>
+
+</div>
+
+
+<a href="#contact" class="nav-btn">
+Start a conversation
+</a>
+
+
+</div>
+
+</nav>
+
+
+
+<section class="hero">
+
+<div class="wrap">
+
+<div class="meta">
+DATA STRATEGY · DATA ENGINEERING · RESOURCE
+</div>
+
+
+<h1>
+Why Data Engineering Is Really About Business Decisions
+</h1>
+
+
+<p>
+The goal of engineering data is not moving information.
+It is creating better decisions.
+</p>
+
+
+<div class="read-time">
+10 MIN READ · CANONICA DATA
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<article class="article">
+
+
+<div class="summary">
+
+<h3>
+Executive takeaway
+</h3>
+
+
+<p>
+A pipeline that moves data reliably is doing its job.
+A pipeline that changes how leadership decides is doing something more valuable.
+The measure of a data engineering function is not uptime or volume.
+It is whether the people making decisions can act on what it produces.
+</p>
+
+
+</div>
+
+
+
+<h2>
+The mistake most organizations make
+</h2>
+
+
+<p>
+Most companies evaluate their data engineering team on infrastructure.
+Is the pipeline running. Is the warehouse fast. Is the dashboard loading on time.
+</p>
+
+<p>
+Those are real questions. They are also the wrong ones to lead with.
+<strong>A pipeline can run perfectly and still fail the business</strong>
+if nobody uses what it produces to make a different decision than they would have made without it.
+</p>
+
+
+
+<h2>
+A simple example: churn
+</h2>
+
+
+<div class="metric-box">
+
+<p><strong>The pipeline delivers:</strong> a daily churn rate, refreshed on schedule, accurate to the source system.</p>
+
+<p><strong>Leadership needs:</strong> which customers are at risk this week, and what to do about them before they leave.</p>
+
+</div>
+
+
+<p>
+Both statements can be true at once. The pipeline is working.
+The business is still flying blind.
+</p>
+
+
+<ul>
+
+<li>The churn rate tells you what already happened.</li>
+
+<li>It does not tell you which account to call.</li>
+
+<li>It does not tell you which action moves the number.</li>
+
+</ul>
+
+
+<p>
+Good data engineering closes that gap. It is not satisfied with an accurate number.
+It asks what decision that number is supposed to change, then builds backward from there.
+</p>
+
+
+
+<h2>
+Why this distinction matters to leaders
+</h2>
+
+
+<p>
+When data engineering is treated as infrastructure, it gets evaluated like infrastructure.
+Budget conversations become questions about servers and licenses instead of outcomes.
+</p>
+
+
+<ul>
+
+<li>
+<strong>Teams optimize for throughput, not impact.</strong>
+Pipelines get faster while the decisions they support stay exactly as slow.
+</li>
+
+<li>
+<strong>Dashboards multiply without changing behavior.</strong>
+More reports get built even though nobody can point to a decision the last one changed.
+</li>
+
+<li>
+<strong>Engineers get measured on the wrong things.</strong>
+Uptime and freshness matter, but they are not the same as business value.
+</li>
+
+<li>
+<strong>AI initiatives inherit the same problem.</strong>
+A model built on data nobody uses to decide anything just automates the same disconnect.
+</li>
+
+</ul>
+
+
+
+<div class="questions-wrapper">
+
+
+<h2>
+The questions every leader should ask their data team
+</h2>
+
+
+<p>
+Not about servers or schemas. About decisions.
+</p>
+
+
+
+<div class="questions">
+
+
+<div class="question">
+
+<h3>
+What decision does this pipeline support?
+</h3>
+
+
+<p>
+Every pipeline should trace back to a decision someone makes on a regular basis.
+If nobody can name that decision, the pipeline is moving data for its own sake.
+</p>
+
+
+<div class="problem">
+
+Common problem:
+Engineering teams can describe the data flow in detail but cannot name the decision it informs.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+Who acts on this, and how often?
+</h3>
+
+
+<p>
+A report nobody opens is not adding value, regardless of how well it was built.
+The right question is not whether the data exists. It is whether someone is using it.
+</p>
+
+
+<div class="problem">
+
+Common problem:
+Dashboards get built, presented once, then quietly ignored.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+What would change if this data were wrong?
+</h3>
+
+
+<p>
+If the honest answer is nothing, the data is not connected to a real decision yet.
+If the answer is a shipment gets delayed or a customer gets called, the pipeline matters.
+</p>
+
+
+<div class="problem">
+
+Common problem:
+Teams cannot say what would actually happen downstream if a number were off by ten percent.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+How fast does insight need to be, really?
+</h3>
+
+
+<p>
+Real time sounds impressive. Most decisions do not need it.
+The right speed is set by how often the decision gets made, not by what is technically possible.
+</p>
+
+
+<div class="problem">
+
+Common problem:
+Teams invest in real time infrastructure for decisions made once a quarter.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="canonical-section">
+
+
+<h2>
+What decision driven engineering looks like
+</h2>
+
+
+<p>
+The output is not a faster pipeline. It is a team that builds backward from
+the decision, then engineers only what that decision requires.
+</p>
+
+
+
+<div class="canonical-list">
+
+
+<div class="canonical-item">
+<strong>Named decisions</strong><br>
+Every pipeline ties back to a specific, recurring decision someone owns.
+</div>
+
+
+<div class="canonical-item">
+<strong>Matched speed</strong><br>
+Data arrives as fast as the decision actually requires, and no faster.
+</div>
+
+
+<div class="canonical-item">
+<strong>Clear ownership</strong><br>
+Someone is accountable for acting on the data, not just receiving it.
+</div>
+
+
+<div class="canonical-item">
+<strong>Measurable impact</strong><br>
+The team can point to a decision that changed because of what they built.
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<h2>
+The Canonica approach
+</h2>
+
+
+<p>
+Every engagement follows the same principle.
+<strong>Start with the decision, then build only what it requires.</strong>
+</p>
+
+
+<div class="process">
+
+
+<div class="step">
+
+<span>01</span>
+
+<h3>Discover</h3>
+
+<p>
+Identify the recurring decisions leadership actually makes and what currently informs them.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>02</span>
+
+<h3>Define</h3>
+
+<p>
+Agree on what data each decision needs, at what speed, and who owns acting on it.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>03</span>
+
+<h3>Model</h3>
+
+<p>
+Build the pipeline backward from the decision, not forward from whatever data exists.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>04</span>
+
+<h3>Deliver</h3>
+
+<p>
+Put the answer in front of the person who acts on it, on the schedule the decision runs on.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="cta">
+
+
+<h2>
+The Canonica Principle
+</h2>
+
+
+<p>
+<strong>Data engineering exists to change decisions, not just move data.</strong>
+</p>
+
+
+<p>
+The pipeline is a means. The decision is the point.
+Build backward from what leadership actually needs to decide.
+</p>
+
+
+<a href="#contact" class="button">
+Start a conversation →
+</a>
+
+
+</div>
+
+
+
+</article>
+
+
+
+<footer>
+
+<div class="wrap">
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<p>
+canonicadata.com · © 2026
+</p>
+
+
+</div>
+
+</footer>
+
+
+</body>
+</html>

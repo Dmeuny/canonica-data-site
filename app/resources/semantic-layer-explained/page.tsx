@@ -1,0 +1,787 @@
+import Navbar from "../../components/Navbar";
+import React from 'react';
+
+const SemanticLayerExplained: React.FC = () => {
+  return (
+    <>
+      <style>{`
+        :root {
+          --navy-950:#071427;
+          --navy-900:#0B1E3D;
+          --navy-800:#123059;
+          --blue-700:#1B3A6B;
+          --teal-500:#2FA8A0;
+          --teal-600:#1E7E78;
+
+          --gray-50:#F6F8FA;
+          --gray-100:#EEF1F5;
+          --gray-200:#E1E6EC;
+          --gray-600:#5C6B7A;
+
+          --white:#FFFFFF;
+        }
+
+        * {
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+        }
+
+        body {
+          font-family:'Inter',sans-serif;
+          color:var(--navy-900);
+          line-height:1.7;
+          background:white;
+        }
+
+        h1,h2,h3 {
+          font-family:'Manrope',sans-serif;
+          font-weight:600;
+          letter-spacing:-0.025em;
+          line-height:1.15;
+        }
+
+        .wrap {
+          max-width:1180px;
+          margin:auto;
+          padding:0 40px;
+        }
+
+        nav {
+          height:76px;
+          border-bottom:1px solid var(--gray-200);
+          background:white;
+          position:sticky;
+          top:0;
+          z-index:20;
+        }
+
+        .nav-inner {
+          height:100%;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+        }
+
+        .brand {
+          font-family:'Manrope';
+          font-weight:700;
+          font-size:20px;
+          color:var(--navy-900);
+        }
+
+        .nav-links {
+          display:flex;
+          gap:35px;
+        }
+
+        .nav-links a {
+          color:var(--navy-800);
+          text-decoration:none;
+          font-size:14px;
+        }
+
+        .nav-btn {
+          display:inline-flex;
+          align-items:center;
+          background:var(--navy-900);
+          color:white;
+          padding:12px 25px;
+          border-radius:9px;
+          text-decoration:none;
+          font-size:14px;
+          font-weight:600;
+          box-shadow:0 10px 25px -12px rgba(11,30,61,.45);
+          transition:.2s;
+        }
+
+        .nav-btn:hover {
+          background:var(--navy-800);
+          transform:translateY(-2px);
+        }
+
+        .hero {
+          background:
+            linear-gradient(
+              180deg,
+              var(--gray-50),
+              white
+            );
+          padding:95px 0 90px;
+        }
+
+        .meta {
+          font-family:'IBM Plex Mono';
+          font-size:12px;
+          color:var(--teal-600);
+          letter-spacing:.08em;
+          text-transform:uppercase;
+          margin-bottom:30px;
+        }
+
+        .hero h1 {
+          font-size:58px;
+          max-width:900px;
+        }
+
+        .hero p {
+          margin-top:30px;
+          max-width:760px;
+          font-size:21px;
+          color:var(--gray-600);
+        }
+
+        .read-time {
+          margin-top:30px;
+          font-family:'IBM Plex Mono';
+          font-size:13px;
+          color:var(--gray-600);
+        }
+
+        .article {
+          max-width:1180px;
+          margin:auto;
+          padding:80px 40px;
+        }
+
+        .summary {
+          background:
+            linear-gradient(
+              135deg,
+              var(--navy-900),
+              var(--navy-800)
+            );
+          color:white;
+          padding:40px;
+          border-radius:18px;
+          margin-bottom:70px;
+          box-shadow:0 20px 50px -25px rgba(11,30,61,.4);
+        }
+
+        .summary h3 {
+          color:white;
+          font-size:23px;
+          margin-bottom:15px;
+        }
+
+        .summary p {
+          color:rgba(255,255,255,.82);
+        }
+
+        .article h2 {
+          font-size:36px;
+          margin:75px 0 25px;
+        }
+
+        .article p {
+          font-size:18px;
+          margin-bottom:24px;
+          max-width:900px;
+        }
+
+        .article strong {
+          font-weight:700;
+        }
+
+        .article ul {
+          margin:25px 0 35px 25px;
+          font-size:18px;
+          max-width:900px;
+        }
+
+        .article li {
+          margin-bottom:12px;
+        }
+
+        .metric-box {
+          background:var(--gray-50);
+          border:1px solid var(--gray-200);
+          border-radius:16px;
+          padding:35px;
+          margin:40px 0;
+          max-width:900px;
+        }
+
+        .metric-box p {
+          margin:10px 0;
+        }
+
+        .questions-wrapper {
+          background:var(--navy-950);
+          margin-left:-40px;
+          margin-right:-40px;
+          padding:60px 40px;
+          border-radius:22px;
+        }
+
+        .questions-wrapper h2 {
+          color:white;
+          margin-top:0;
+        }
+
+        .questions-wrapper > p {
+          color:rgba(255,255,255,.75);
+        }
+
+        .questions {
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:24px;
+          margin-top:40px;
+        }
+
+        .question {
+          background:white;
+          border-radius:16px;
+          padding:28px;
+          border:1px solid rgba(255,255,255,.15);
+        }
+
+        .question h3 {
+          font-size:20px;
+          margin-bottom:15px;
+        }
+
+        .question p {
+          font-size:15px;
+          color:var(--gray-600);
+        }
+
+        .problem {
+          margin-top:15px;
+          background:var(--gray-50);
+          border-left:3px solid var(--teal-500);
+          padding:14px;
+          border-radius:8px;
+          font-size:14px;
+          color:var(--navy-800);
+        }
+
+        .canonical-section {
+          background:var(--gray-50);
+          margin-top:80px;
+          padding:70px 60px;
+          border-radius:22px;
+        }
+
+        .canonical-section h2 {
+          margin-top:0;
+        }
+
+        .canonical-section strong {
+          color:var(--teal-600);
+        }
+
+        .canonical-list {
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:18px;
+          margin-top:35px;
+        }
+
+        .canonical-item {
+          background:white;
+          border:1px solid var(--gray-200);
+          border-radius:14px;
+          padding:22px;
+          font-size:16px;
+        }
+
+        .process {
+          display:grid;
+          grid-template-columns:repeat(4,1fr);
+          gap:20px;
+          margin-top:45px;
+        }
+
+        .step {
+          border:1px solid var(--gray-200);
+          border-radius:16px;
+          padding:28px;
+          background:white;
+        }
+
+        .step span {
+          display:inline-flex;
+          width:38px;
+          height:38px;
+          align-items:center;
+          justify-content:center;
+          border-radius:50%;
+          background:var(--navy-900);
+          color:white;
+          font-family:'IBM Plex Mono';
+          font-size:13px;
+          margin-bottom:18px;
+        }
+
+        .step h3 {
+          font-size:19px;
+          margin-bottom:12px;
+        }
+
+        .step p {
+          font-size:15px;
+          color:var(--gray-600);
+        }
+
+        .cta {
+          margin-top:80px;
+          background:
+            linear-gradient(
+              135deg,
+              var(--navy-950),
+              var(--blue-700)
+            );
+          color:white;
+          border-radius:22px;
+          padding:60px;
+          text-align:center;
+        }
+
+        .cta h2 {
+          color:white;
+          margin-top:0;
+          font-size:40px;
+        }
+
+        .cta p {
+          color:rgba(255,255,255,.8);
+          max-width:650px;
+          margin:20px auto;
+        }
+
+        .cta strong {
+          color:white;
+        }
+
+        .button {
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          margin-top:30px;
+          background:white;
+          color:var(--navy-900);
+          padding:15px 30px;
+          border-radius:10px;
+          text-decoration:none;
+          font-weight:600;
+          transition:.2s;
+        }
+
+        .button:hover {
+          transform:translateY(-2px);
+        }
+
+        footer {
+          border-top:1px solid var(--gray-200);
+          padding:35px 0;
+        }
+
+        footer .wrap {
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+        }
+
+        footer p {
+          color:var(--gray-600);
+          font-size:14px;
+        }
+
+        @media(max-width:900px) {
+          .hero h1 {
+            font-size:42px;
+          }
+
+          .nav-links {
+            display:none;
+          }
+
+          .questions,
+          .canonical-list,
+          .process {
+            grid-template-columns:1fr;
+          }
+
+          .article {
+            padding:60px 25px;
+          }
+
+          .questions-wrapper {
+            margin-left:-25px;
+            margin-right:-25px;
+            padding:45px 25px;
+          }
+
+          .cta {
+            padding:40px 25px;
+          }
+        }
+      `}</style>
+
+      <Navbar />
+
+      <section className="hero">
+        <div className="wrap">
+          <div className="meta">
+            DATA STRATEGY · SEMANTIC LAYER · ANALYTICS · RESOURCE
+          </div>
+
+          <h1>
+            What Is a Semantic Layer, and Why Should You Care?
+          </h1>
+
+          <p>
+            A semantic layer gives the business a shared way to define and use
+            metrics, so the same question does not produce a different answer
+            in every report.
+          </p>
+
+          <div className="read-time">
+            9 MIN READ · CANONICA DATA
+          </div>
+        </div>
+      </section>
+
+      <article className="article">
+        <div className="summary">
+          <h3>Executive takeaway</h3>
+
+          <p>
+            A semantic layer is the shared business logic between raw data and
+            the tools people use to analyze it. It gives metrics consistent
+            definitions, reusable logic, and a common language so teams spend
+            less time debating numbers and more time using them.
+          </p>
+        </div>
+
+        <h2>The mistake most organizations make</h2>
+
+        <p>
+          Most companies eventually build dashboards, reports, SQL queries,
+          and spreadsheets that answer similar business questions.
+        </p>
+
+        <p>
+          The problem is that each one can contain its own version of the
+          logic.
+        </p>
+
+        <p>
+          One dashboard defines active customers using a 30-day window.
+          Another uses 90 days. A finance report excludes one category of
+          revenue while an operations report includes it.
+        </p>
+
+        <p>
+          Nothing is technically broken.
+        </p>
+
+        <p>
+          <strong>
+            The organization simply has multiple definitions of the same
+            business concept.
+          </strong>
+        </p>
+
+        <p>
+          A semantic layer addresses that problem by putting agreed business
+          logic in a reusable place between the underlying data and the tools
+          people use to consume it.
+        </p>
+
+        <h2>A simple example: what is an active customer?</h2>
+
+        <div className="metric-box">
+          <p>
+            <strong>Without shared semantic logic:</strong> Sales counts
+            customers with an open opportunity, Finance counts customers with
+            a current contract, and Product counts customers who logged in
+            during the last 30 days.
+          </p>
+
+          <p>
+            <strong>With a semantic layer:</strong> the organization defines
+            the metric, documents the business meaning, and makes that
+            definition reusable across reports and analytical tools.
+          </p>
+        </div>
+
+        <p>
+          The issue is not that one team knows SQL better than another.
+        </p>
+
+        <p>
+          The issue is that the business has not established which question
+          the number is supposed to answer.
+        </p>
+
+        <ul>
+          <li>
+            Definitions are written down instead of living inside individual
+            reports.
+          </li>
+          <li>
+            Business logic can be reused across multiple analytical
+            experiences.
+          </li>
+          <li>
+            Changes to a metric can be managed centrally.
+          </li>
+          <li>
+            Stakeholders can discuss the meaning of a metric before discussing
+            its visualization.
+          </li>
+        </ul>
+
+        <p>
+          <strong>
+            The semantic layer turns business definitions into reusable data
+            logic.
+          </strong>
+        </p>
+
+        <h2>Why this distinction matters to leaders</h2>
+
+        <p>
+          A semantic layer matters when the organization starts asking the
+          same questions in many different places.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Numbers become comparable.</strong> Teams can use the same
+            definition instead of reconciling different calculations after
+            the fact.
+          </li>
+          <li>
+            <strong>Analytics becomes easier to maintain.</strong> Business
+            logic does not have to be copied into every dashboard and query.
+          </li>
+          <li>
+            <strong>AI gets better context.</strong> AI systems can work from
+            defined metrics instead of trying to infer business meaning from
+            raw tables.
+          </li>
+          <li>
+            <strong>Governance becomes practical.</strong> Definitions are
+            connected to the data and tools people actually use.
+          </li>
+        </ul>
+
+        <p>
+          A semantic layer is not another dashboard and it is not simply a
+          database view.
+        </p>
+
+        <p>
+          <strong>
+            It is a way to make the business meaning of data reusable.
+          </strong>
+        </p>
+
+        <div className="questions-wrapper">
+          <h2>The questions every leader should ask</h2>
+
+          <p>
+            Not about buying another tool. About whether the business can
+            trust the data underneath its decisions.
+          </p>
+
+          <div className="questions">
+            <div className="question">
+              <h3>
+                Do different teams calculate the same metric differently?
+              </h3>
+
+              <p>
+                Look for places where the same business term appears in
+                multiple reports with different filters, joins, or
+                assumptions.
+              </p>
+
+              <div className="problem">
+                Common problem:
+                <br />
+                Everyone agrees on the metric name but discovers later that
+                the calculations are different.
+              </div>
+            </div>
+
+            <div className="question">
+              <h3>Where does business logic live today?</h3>
+
+              <p>
+                If important definitions only exist inside dashboards,
+                spreadsheets, or individual SQL queries, they are difficult
+                to govern and reuse.
+              </p>
+
+              <div className="problem">
+                Common problem:
+                <br />
+                A metric is considered defined because someone knows which
+                dashboard contains the correct formula.
+              </div>
+            </div>
+
+            <div className="question">
+              <h3>Can a metric be reused across tools?</h3>
+
+              <p>
+                A strong semantic foundation allows business logic to serve
+                multiple reporting and analytical experiences instead of
+                being rebuilt for each one.
+              </p>
+
+              <div className="problem">
+                Common problem:
+                <br />
+                The same metric has to be recreated every time a new report or
+                tool is introduced.
+              </div>
+            </div>
+
+            <div className="question">
+              <h3>Who decides what a metric means?</h3>
+
+              <p>
+                A semantic layer works best when business ownership and
+                technical implementation are both explicit.
+              </p>
+
+              <div className="problem">
+                Common problem:
+                <br />
+                Engineers define the calculation because nobody from the
+                business has formally confirmed the meaning.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="canonical-section">
+          <h2>What strong data foundations look like</h2>
+
+          <p>
+            The goal is not to add another tool or another layer of process.
+            It is to create a shared, reliable understanding of the data the
+            business actually depends on.
+          </p>
+
+          <div className="canonical-list">
+            <div className="canonical-item">
+              <strong>Shared definitions</strong>
+              <br />
+              Important metrics and dimensions have business definitions that
+              stakeholders can understand and agree on.
+            </div>
+
+            <div className="canonical-item">
+              <strong>Reusable logic</strong>
+              <br />
+              The calculation is defined once and can be used consistently
+              across multiple analytical experiences.
+            </div>
+
+            <div className="canonical-item">
+              <strong>Business ownership</strong>
+              <br />
+              The people responsible for the meaning of a metric are involved
+              in defining and approving it.
+            </div>
+
+            <div className="canonical-item">
+              <strong>Accessible context</strong>
+              <br />
+              Users and analytical systems can understand not only a number,
+              but what that number actually represents.
+            </div>
+          </div>
+        </div>
+
+        <h2>The Canonica approach</h2>
+
+        <p>
+          Every engagement follows the same principle.{' '}
+          <strong>
+            Understand the problem before building the solution.
+          </strong>
+        </p>
+
+        <div className="process">
+          <div className="step">
+            <span>01</span>
+            <h3>Identify</h3>
+            <p>
+              Find the metrics that matter most and document where their
+              definitions currently live.
+            </p>
+          </div>
+
+          <div className="step">
+            <span>02</span>
+            <h3>Align</h3>
+            <p>
+              Bring business and technical stakeholders together to agree on
+              what each metric means.
+            </p>
+          </div>
+
+          <div className="step">
+            <span>03</span>
+            <h3>Model</h3>
+            <p>
+              Implement reusable business logic on top of trusted underlying
+              data.
+            </p>
+          </div>
+
+          <div className="step">
+            <span>04</span>
+            <h3>Expose</h3>
+            <p>
+              Make the definitions available across dashboards, analysis, and
+              other data experiences.
+            </p>
+          </div>
+        </div>
+
+        <div className="cta">
+          <h2>The Canonica Principle</h2>
+
+          <p>
+            <strong>
+              A metric is not truly defined until the business agrees on what
+              it means and the logic can be reused consistently.
+            </strong>
+          </p>
+
+          <p>
+            Build the semantic layer once, then stop rebuilding the meaning of
+            the business in every report.
+          </p>
+
+          <a href="#contact" className="button">
+            Start a conversation →
+          </a>
+        </div>
+      </article>
+
+      <footer>
+        <div className="wrap">
+          <div className="brand">
+            Canonica Data
+          </div>
+
+          <p>
+            canonicadata.com · © 2026
+          </p>
+        </div>
+      </footer>
+    </>
+  );
+};
+
+export default SemanticLayerExplained;

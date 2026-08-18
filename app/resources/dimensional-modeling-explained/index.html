@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dimensional Modeling Explained | Canonica Data</title>
+<meta name="description" content="Dimensional modeling turns raw event data into numbers business leaders can trust and query in seconds. Here is what grain, facts, dimensions, and SCD Type 2 actually mean, and why they matter.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+  --navy-950:#071427;
+  --navy-900:#0B1E3D;
+  --navy-800:#123059;
+  --blue-700:#1B3A6B;
+  --teal-500:#2FA8A0;
+  --teal-600:#1E7E78;
+
+  --gray-50:#F6F8FA;
+  --gray-100:#EEF1F5;
+  --gray-200:#E1E6EC;
+  --gray-600:#5C6B7A;
+
+  --white:#FFFFFF;
+}
+
+
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+
+body {
+ font-family:'Inter',sans-serif;
+ color:var(--navy-900);
+ line-height:1.7;
+ background:white;
+}
+
+
+h1,h2,h3 {
+ font-family:'Manrope',sans-serif;
+ font-weight:600;
+ letter-spacing:-0.025em;
+ line-height:1.15;
+}
+
+
+.wrap {
+ max-width:1180px;
+ margin:auto;
+ padding:0 40px;
+}
+
+
+/* NAV */
+
+nav {
+
+ height:76px;
+ border-bottom:1px solid var(--gray-200);
+ background:white;
+ position:sticky;
+ top:0;
+ z-index:20;
+
+}
+
+
+.nav-inner {
+
+ height:100%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+
+}
+
+
+.brand {
+
+ font-family:'Manrope';
+ font-weight:700;
+ font-size:20px;
+ color:var(--navy-900);
+
+}
+
+
+.nav-links {
+
+ display:flex;
+ gap:35px;
+
+}
+
+
+.nav-links a {
+
+ color:var(--navy-800);
+ text-decoration:none;
+ font-size:14px;
+
+}
+
+
+.nav-btn {
+
+ display:inline-flex;
+ align-items:center;
+
+ background:var(--navy-900);
+ color:white;
+
+ padding:12px 25px;
+ border-radius:9px;
+
+ text-decoration:none;
+ font-size:14px;
+ font-weight:600;
+
+ box-shadow:
+ 0 10px 25px -12px rgba(11,30,61,.45);
+
+ transition:.2s;
+
+}
+
+
+.nav-btn:hover {
+
+ background:var(--navy-800);
+ transform:translateY(-2px);
+
+}
+
+
+
+/* HERO */
+
+
+.hero {
+
+ background:
+ linear-gradient(
+ 180deg,
+ var(--gray-50),
+ white
+ );
+
+ padding:95px 0 90px;
+
+}
+
+
+.meta {
+
+ font-family:'IBM Plex Mono';
+ font-size:12px;
+ color:var(--teal-600);
+ letter-spacing:.08em;
+ text-transform:uppercase;
+ margin-bottom:30px;
+
+}
+
+
+.hero h1 {
+
+ font-size:58px;
+ max-width:900px;
+
+}
+
+
+.hero p {
+
+ margin-top:30px;
+ max-width:760px;
+
+ font-size:21px;
+ color:var(--gray-600);
+
+}
+
+
+.read-time {
+
+ margin-top:30px;
+
+ font-family:'IBM Plex Mono';
+ font-size:13px;
+
+ color:var(--gray-600);
+
+}
+
+
+
+/* ARTICLE */
+
+
+.article {
+
+ max-width:1180px;
+ margin:auto;
+
+ padding:80px 40px;
+
+}
+
+
+.summary {
+
+ background:
+ linear-gradient(
+ 135deg,
+ var(--navy-900),
+ var(--navy-800)
+ );
+
+ color:white;
+
+ padding:40px;
+
+ border-radius:18px;
+
+ margin-bottom:70px;
+
+ box-shadow:
+ 0 20px 50px -25px rgba(11,30,61,.4);
+
+}
+
+
+.summary h3 {
+
+ color:white;
+ font-size:23px;
+ margin-bottom:15px;
+
+}
+
+
+.summary p {
+
+ color:rgba(255,255,255,.82);
+
+}
+
+
+.article h2 {
+
+ font-size:36px;
+
+ margin:75px 0 25px;
+
+}
+
+
+.article p {
+
+ font-size:18px;
+
+ margin-bottom:24px;
+
+ max-width:900px;
+}
+
+
+.article strong {
+
+ font-weight:700;
+
+}
+
+
+.article ul {
+
+ margin:25px 0 35px 25px;
+
+ font-size:18px;
+
+ max-width:900px;
+}
+
+
+.article li {
+
+ margin-bottom:12px;
+
+}
+
+
+
+/* METRIC */
+
+
+.metric-box {
+
+ background:var(--gray-50);
+
+ border:1px solid var(--gray-200);
+
+ border-radius:16px;
+
+ padding:35px;
+
+ margin:40px 0;
+
+  max-width:900px;
+
+}
+
+
+.metric-box p {
+
+ margin:10px 0;
+
+}
+
+
+
+/* QUESTIONS SECTION */
+
+
+.questions-wrapper {
+
+ background:var(--navy-950);
+
+ margin-left:-40px;
+ margin-right:-40px;
+
+ padding:60px 40px;
+
+ border-radius:22px;
+
+}
+
+
+.questions-wrapper h2 {
+
+ color:white;
+
+ margin-top:0;
+
+}
+
+
+.questions-wrapper > p {
+
+ color:rgba(255,255,255,.75);
+
+}
+
+
+.questions {
+
+ display:grid;
+
+ grid-template-columns:1fr 1fr;
+
+ gap:24px;
+
+ margin-top:40px;
+
+}
+
+
+.question {
+
+ background:white;
+
+ border-radius:16px;
+
+ padding:28px;
+
+ border:1px solid rgba(255,255,255,.15);
+
+}
+
+
+.question h3 {
+
+ font-size:20px;
+
+ margin-bottom:15px;
+
+}
+
+
+.question p {
+
+ font-size:15px;
+
+ color:var(--gray-600);
+
+}
+
+
+.problem {
+
+ margin-top:15px;
+
+ background:var(--gray-50);
+
+ border-left:3px solid var(--teal-500);
+
+ padding:14px;
+
+ border-radius:8px;
+
+ font-size:14px;
+
+ color:var(--navy-800);
+
+}
+
+/* CANONICAL DATA SECTION */
+
+.canonical-section {
+
+ background:var(--gray-50);
+
+ margin-top:80px;
+
+ padding:70px 60px;
+
+ border-radius:22px;
+
+}
+
+
+.canonical-section h2 {
+
+ margin-top:0;
+
+}
+
+
+.canonical-section strong {
+
+ color:var(--teal-600);
+
+}
+
+
+.canonical-list {
+
+ display:grid;
+
+ grid-template-columns:1fr 1fr;
+
+ gap:18px;
+
+ margin-top:35px;
+
+}
+
+
+.canonical-item {
+
+ background:white;
+
+ border:1px solid var(--gray-200);
+
+ border-radius:14px;
+
+ padding:22px;
+
+ font-size:16px;
+
+}
+
+
+
+.process {
+
+ display:grid;
+
+ grid-template-columns:repeat(4,1fr);
+
+ gap:20px;
+
+ margin-top:45px;
+
+}
+
+
+.step {
+
+ border:1px solid var(--gray-200);
+
+ border-radius:16px;
+
+ padding:28px;
+
+ background:white;
+
+}
+
+
+.step span {
+
+ display:inline-flex;
+
+ width:38px;
+
+ height:38px;
+
+ align-items:center;
+
+ justify-content:center;
+
+ border-radius:50%;
+
+ background:var(--navy-900);
+
+ color:white;
+
+ font-family:'IBM Plex Mono';
+
+ font-size:13px;
+
+ margin-bottom:18px;
+
+}
+
+
+.step h3 {
+
+ font-size:19px;
+
+ margin-bottom:12px;
+
+}
+
+
+.step p {
+
+ font-size:15px;
+
+ color:var(--gray-600);
+
+}
+
+
+
+/* FINAL CTA */
+
+.cta {
+
+ margin-top:80px;
+
+ background:
+ linear-gradient(
+ 135deg,
+ var(--navy-950),
+ var(--blue-700)
+ );
+
+ color:white;
+
+ border-radius:22px;
+
+ padding:60px;
+
+ text-align:center;
+
+}
+
+
+.cta h2 {
+
+ color:white;
+
+ margin-top:0;
+
+ font-size:40px;
+
+}
+
+
+.cta p {
+
+ color:rgba(255,255,255,.8);
+
+ max-width:650px;
+
+ margin:20px auto;
+
+}
+
+
+.cta strong {
+
+ color:white;
+
+}
+
+
+.button {
+
+ display:inline-flex;
+
+ align-items:center;
+
+ justify-content:center;
+
+ margin-top:30px;
+
+ background:white;
+
+ color:var(--navy-900);
+
+ padding:15px 30px;
+
+ border-radius:10px;
+
+ text-decoration:none;
+
+ font-weight:600;
+
+ transition:.2s;
+
+}
+
+
+.button:hover {
+
+ transform:translateY(-2px);
+
+}
+
+
+
+/* FOOTER */
+
+footer {
+
+ border-top:1px solid var(--gray-200);
+
+ padding:35px 0;
+
+}
+
+
+footer .wrap {
+
+ display:flex;
+
+ justify-content:space-between;
+
+ align-items:center;
+
+}
+
+
+footer p {
+
+ color:var(--gray-600);
+
+ font-size:14px;
+
+}
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:900px){
+
+ .hero h1 {
+  font-size:42px;
+ }
+
+ .nav-links {
+  display:none;
+ }
+
+ .questions,
+ .canonical-list,
+ .process {
+  grid-template-columns:1fr;
+ }
+
+ .article {
+  padding:60px 25px;
+ }
+
+ .questions-wrapper {
+
+  margin-left:-25px;
+  margin-right:-25px;
+
+  padding:45px 25px;
+
+ }
+
+ .cta {
+
+  padding:40px 25px;
+
+ }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="wrap nav-inner">
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<div class="nav-links">
+
+<a href="#">Services</a>
+<a href="#">About</a>
+<a href="#">Work</a>
+<a href="#">Resources</a>
+<a href="#">Contact</a>
+
+</div>
+
+
+<a href="#contact" class="nav-btn">
+Start a conversation
+</a>
+
+
+</div>
+
+</nav>
+
+
+
+<section class="hero">
+
+<div class="wrap">
+
+<div class="meta">
+DATA MODELING · DATA ENGINEERING · RESOURCE
+</div>
+
+
+<h1>
+Dimensional Modeling Explained
+</h1>
+
+
+<p>
+The goal of dimensional modeling is not organizing tables.
+It is making the truth fast to find and impossible to misread.
+</p>
+
+
+<div class="read-time">
+9 MIN READ · CANONICA DATA
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<article class="article">
+
+
+<div class="summary">
+
+<h3>
+Executive takeaway
+</h3>
+
+
+<p>
+A normalized database is built to avoid duplicating data.
+A dimensional model is built to answer business questions quickly and consistently, every time someone asks.
+The measure of a dimensional model is not how elegant the schema looks.
+It is whether two different analysts get the same number when they ask the same question.
+</p>
+
+
+</div>
+
+
+
+<h2>
+The mistake most organizations make
+</h2>
+
+
+<p>
+Most teams treat dimensional modeling as a denormalization exercise: take the transactional
+tables, flatten them, ship a wide table, call it done.
+</p>
+
+<p>
+That produces a table. It does not produce a model.
+<strong>A dimensional model starts with a decision about grain</strong>, the exact statement of
+what one row represents, before a single column gets built. Skip that step and every downstream
+number becomes a guess about what got counted.
+</p>
+
+
+
+<h2>
+A simple example: order fulfillment</h2>
+
+
+<div class="metric-box">
+
+<p><strong>Undefined grain delivers:</strong> an "orders" table where nobody can say if a row is an order, a line item, or a shipment, so total revenue depends on who wrote the query.</p>
+
+<p><strong>Defined grain delivers:</strong> one fact row per order line item per fulfillment event, with a documented statement: <em>"one row = one unit shipped."</em></p>
+
+</div>
+
+
+<p>
+Both tables can contain the same underlying data. Only one of them lets finance, ops, and
+product agree on what "total orders" means without a meeting.
+</p>
+
+
+<ul>
+
+<li>The undefined table answers different questions depending on who joins it.</li>
+
+<li>The grain-defined fact table answers the same question the same way every time.</li>
+
+<li>Every dimension (customer, product, warehouse, date) attaches cleanly once the grain is fixed.</li>
+
+</ul>
+
+
+<p>
+Good dimensional modeling does not start with the tables that already exist. It starts with the
+business process being measured, then builds the fact and dimension tables that process requires.
+</p>
+
+
+
+<h2>
+Why this distinction matters to leaders
+</h2>
+
+
+<p>
+When dimensional modeling is treated as a technical formality, the organization inherits its
+side effects without ever deciding to accept them.
+</p>
+
+
+<ul>
+
+<li>
+<strong>Metrics drift apart across teams.</strong>
+Finance's "active customers" and product's "active customers" quietly diverge because nobody
+agreed on grain or a conformed dimension.
+</li>
+
+<li>
+<strong>History gets overwritten.</strong>
+Without slowly changing dimensions, a customer's address, tier, or sales rep changes today and
+erases what was true when last quarter's deal closed.
+</li>
+
+<li>
+<strong>Dashboards get rebuilt instead of reused.</strong>
+Every new report starts from raw tables because there is no shared, trusted dimensional layer to build on.
+</li>
+
+<li>
+<strong>AI and analytics initiatives inherit the same instability.</strong>
+A model trained on a fact table with shifting grain produces predictions nobody can audit.
+</li>
+
+</ul>
+
+
+
+<div class="questions-wrapper">
+
+
+<h2>
+The questions every leader should ask their data team
+</h2>
+
+
+<p>
+Not about table counts or schema diagrams. About grain, history, and trust.
+</p>
+
+
+
+<div class="questions">
+
+
+<div class="question">
+
+<h3>
+What is the grain of this fact table?
+</h3>
+
+
+<p>
+Every fact table needs a one-sentence answer to "what does one row represent?"
+If the team can't state it in one sentence, the table doesn't have a grain yet - it has data.
+</p>
+
+
+<div class="problem">
+
+Common problem:
+Teams can describe the columns in a fact table but can't state the grain in one sentence.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+Are dimensions conformed across the business?
+</h3>
+
+
+<p>
+A conformed dimension means "customer" or "date" means the exact same thing in every fact
+table it touches. Without that, every report is quietly answering a slightly different question.
+</p>
+
+
+<div class="problem">
+
+Common problem:
+Marketing's customer dimension and finance's customer dimension don't share the same keys.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+Does this model preserve history, or overwrite it?
+</h3>
+
+
+<p>
+A Slowly Changing Dimension (Type 2) keeps a row for every version of an attribute over time,
+with effective dates. Without it, "what was true then" silently becomes "what is true now."
+</p>
+
+
+<div class="problem">
+
+Common problem:
+A customer's tier or region updates in place, and every historical report changes retroactively.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+Is this a star schema, or does it need to be?
+</h3>
+
+
+<p>
+A star schema - one fact table surrounded by denormalized dimension tables - is built for query
+speed and analyst comprehension, not storage efficiency. Snowflaking dimensions trades both away.
+</p>
+
+
+<div class="problem">
+
+Common problem:
+Dimensions get normalized into multiple joins "for cleanliness," and every query slows down.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="canonical-section">
+
+
+<h2>
+What a well-built dimensional model looks like
+</h2>
+
+
+<p>
+The output is not a wide table. It is a fact and dimension layer that lets any
+analyst ask a business question and trust the answer without checking with the engineering team.
+</p>
+
+
+
+<div class="canonical-list">
+
+
+<div class="canonical-item">
+<strong>Named grain</strong><br>
+Every fact table has a one-sentence grain statement, documented and enforced.
+</div>
+
+
+<div class="canonical-item">
+<strong>Conformed dimensions</strong><br>
+Shared dimensions like customer, date, and product mean the same thing everywhere they're used.
+</div>
+
+
+<div class="canonical-item">
+<strong>Tracked history</strong><br>
+Slowly Changing Dimension logic (typically Type 2) preserves what was true at the time, not just what's true now.
+</div>
+
+
+<div class="canonical-item">
+<strong>Cumulative design where it fits</strong><br>
+State that changes gradually, like customer status over time, is modeled as a cumulative table, not recomputed from scratch daily.
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<h2>
+The Canonica approach
+</h2>
+
+
+<p>
+Every engagement follows the same principle.
+<strong>Define the grain first, then build only what that grain requires.</strong>
+</p>
+
+
+<div class="process">
+
+
+<div class="step">
+
+<span>01</span>
+
+<h3>Discover</h3>
+
+<p>
+Identify the business process being measured and the questions leadership actually asks about it.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>02</span>
+
+<h3>Define</h3>
+
+<p>
+Agree on the grain of each fact table and which dimensions need to be conformed across teams.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>03</span>
+
+<h3>Model</h3>
+
+<p>
+Build fact and dimension tables backward from the grain, with SCD Type 2 wherever history matters.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>04</span>
+
+<h3>Deliver</h3>
+
+<p>
+Hand analysts a star schema they can query directly, with documentation on what every row means.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="cta">
+
+
+<h2>
+The Canonica Principle
+</h2>
+
+
+<p>
+<strong>Dimensional modeling exists to make data trustworthy and fast, not to organize tables for their own sake.</strong>
+</p>
+
+
+<p>
+The schema is a means. Two people getting the same answer to the same question is the point.
+Define the grain before you build anything.
+</p>
+
+
+<a href="#contact" class="button">
+Start a conversation →
+</a>
+
+
+</div>
+
+
+
+</article>
+
+
+
+<footer>
+
+<div class="wrap">
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<p>
+canonicadata.com · © 2026
+</p>
+
+
+</div>
+
+</footer>
+
+
+</body>
+</html>

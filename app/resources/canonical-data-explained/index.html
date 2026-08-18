@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Canonical Data, Explained: A Plain-English Guide for Leaders | Canonica Data</title>
+<meta name="description" content="Canonical data is the single, agreed-upon version of a business fact, one definition of 'customer,' 'revenue,' or 'active user' that every team and every system uses. Here's what it means, why it matters, and how to build it.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+  --navy-950:#071427;
+  --navy-900:#0B1E3D;
+  --navy-800:#123059;
+  --blue-700:#1B3A6B;
+  --teal-500:#2FA8A0;
+  --teal-600:#1E7E78;
+
+  --gray-50:#F6F8FA;
+  --gray-100:#EEF1F5;
+  --gray-200:#E1E6EC;
+  --gray-600:#5C6B7A;
+
+  --white:#FFFFFF;
+}
+
+
+* {
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+
+body {
+ font-family:'Inter',sans-serif;
+ color:var(--navy-900);
+ line-height:1.7;
+ background:white;
+}
+
+
+h1,h2,h3 {
+ font-family:'Manrope',sans-serif;
+ font-weight:600;
+ letter-spacing:-0.025em;
+ line-height:1.15;
+}
+
+
+.wrap {
+ max-width:1180px;
+ margin:auto;
+ padding:0 40px;
+}
+
+
+/* NAV */
+
+nav {
+
+ height:76px;
+ border-bottom:1px solid var(--gray-200);
+ background:white;
+ position:sticky;
+ top:0;
+ z-index:20;
+
+}
+
+
+.nav-inner {
+
+ height:100%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+
+}
+
+
+.brand {
+
+ font-family:'Manrope';
+ font-weight:700;
+ font-size:20px;
+ color:var(--navy-900);
+
+}
+
+
+.nav-links {
+
+ display:flex;
+ gap:35px;
+
+}
+
+
+.nav-links a {
+
+ color:var(--navy-800);
+ text-decoration:none;
+ font-size:14px;
+
+}
+
+
+.nav-btn {
+
+ display:inline-flex;
+ align-items:center;
+
+ background:var(--navy-900);
+ color:white;
+
+ padding:12px 25px;
+ border-radius:9px;
+
+ text-decoration:none;
+ font-size:14px;
+ font-weight:600;
+
+ box-shadow:
+ 0 10px 25px -12px rgba(11,30,61,.45);
+
+ transition:.2s;
+
+}
+
+
+.nav-btn:hover {
+
+ background:var(--navy-800);
+ transform:translateY(-2px);
+
+}
+
+
+
+/* HERO */
+
+
+.hero {
+
+ background:
+ linear-gradient(
+ 180deg,
+ var(--gray-50),
+ white
+ );
+
+ padding:95px 0 90px;
+
+}
+
+
+.meta {
+
+ font-family:'IBM Plex Mono';
+ font-size:12px;
+ color:var(--teal-600);
+ letter-spacing:.08em;
+ text-transform:uppercase;
+ margin-bottom:30px;
+
+}
+
+
+.hero h1 {
+
+ font-size:58px;
+ max-width:900px;
+
+}
+
+
+.hero p {
+
+ margin-top:30px;
+ max-width:760px;
+
+ font-size:21px;
+ color:var(--gray-600);
+
+}
+
+
+.read-time {
+
+ margin-top:30px;
+
+ font-family:'IBM Plex Mono';
+ font-size:13px;
+
+ color:var(--gray-600);
+
+}
+
+
+
+/* ARTICLE */
+
+
+.article {
+
+ max-width:1180px;
+ margin:auto;
+
+ padding:80px 40px;
+
+}
+
+
+.summary {
+
+ background:
+ linear-gradient(
+ 135deg,
+ var(--navy-900),
+ var(--navy-800)
+ );
+
+ color:white;
+
+ padding:40px;
+
+ border-radius:18px;
+
+ margin-bottom:70px;
+
+ box-shadow:
+ 0 20px 50px -25px rgba(11,30,61,.4);
+
+}
+
+
+.summary h3 {
+
+ color:white;
+ font-size:23px;
+ margin-bottom:15px;
+
+}
+
+
+.summary p {
+
+ color:rgba(255,255,255,.82);
+
+}
+
+
+.article h2 {
+
+ font-size:36px;
+
+ margin:75px 0 25px;
+
+}
+
+
+.article p {
+
+ font-size:18px;
+
+ margin-bottom:24px;
+
+ max-width:900px;
+}
+
+
+.article strong {
+
+ font-weight:700;
+
+}
+
+
+.article ul {
+
+ margin:25px 0 35px 25px;
+
+ font-size:18px;
+
+ max-width:900px;
+}
+
+
+.article li {
+
+ margin-bottom:12px;
+
+}
+
+
+
+/* METRIC */
+
+
+.metric-box {
+
+ background:var(--gray-50);
+
+ border:1px solid var(--gray-200);
+
+ border-radius:16px;
+
+ padding:35px;
+
+ margin:40px 0;
+
+  max-width:900px;
+
+}
+
+
+.metric-box p {
+
+ margin:10px 0;
+
+}
+
+
+
+/* QUESTIONS SECTION */
+
+
+.questions-wrapper {
+
+ background:var(--navy-950);
+
+ margin-left:-40px;
+ margin-right:-40px;
+
+ padding:60px 40px;
+
+ border-radius:22px;
+
+}
+
+
+.questions-wrapper h2 {
+
+ color:white;
+
+ margin-top:0;
+
+}
+
+
+.questions-wrapper > p {
+
+ color:rgba(255,255,255,.75);
+
+}
+
+
+.questions {
+
+ display:grid;
+
+ grid-template-columns:1fr 1fr;
+
+ gap:24px;
+
+ margin-top:40px;
+
+}
+
+
+.question {
+
+ background:white;
+
+ border-radius:16px;
+
+ padding:28px;
+
+ border:1px solid rgba(255,255,255,.15);
+
+}
+
+
+.question h3 {
+
+ font-size:20px;
+
+ margin-bottom:15px;
+
+}
+
+
+.question p {
+
+ font-size:15px;
+
+ color:var(--gray-600);
+
+}
+
+
+.problem {
+
+ margin-top:15px;
+
+ background:var(--gray-50);
+
+ border-left:3px solid var(--teal-500);
+
+ padding:14px;
+
+ border-radius:8px;
+
+ font-size:14px;
+
+ color:var(--navy-800);
+
+}
+
+/* CANONICAL DATA SECTION */
+
+.canonical-section {
+
+ background:var(--gray-50);
+
+ margin-top:80px;
+
+ padding:70px 60px;
+
+ border-radius:22px;
+
+}
+
+
+.canonical-section h2 {
+
+ margin-top:0;
+
+}
+
+
+.canonical-section strong {
+
+ color:var(--teal-600);
+
+}
+
+
+.canonical-list {
+
+ display:grid;
+
+ grid-template-columns:1fr 1fr;
+
+ gap:18px;
+
+ margin-top:35px;
+
+}
+
+
+.canonical-item {
+
+ background:white;
+
+ border:1px solid var(--gray-200);
+
+ border-radius:14px;
+
+ padding:22px;
+
+ font-size:16px;
+
+}
+
+
+
+.process {
+
+ display:grid;
+
+ grid-template-columns:repeat(4,1fr);
+
+ gap:20px;
+
+ margin-top:45px;
+
+}
+
+
+.step {
+
+ border:1px solid var(--gray-200);
+
+ border-radius:16px;
+
+ padding:28px;
+
+ background:white;
+
+}
+
+
+.step span {
+
+ display:inline-flex;
+
+ width:38px;
+
+ height:38px;
+
+ align-items:center;
+
+ justify-content:center;
+
+ border-radius:50%;
+
+ background:var(--navy-900);
+
+ color:white;
+
+ font-family:'IBM Plex Mono';
+
+ font-size:13px;
+
+ margin-bottom:18px;
+
+}
+
+
+.step h3 {
+
+ font-size:19px;
+
+ margin-bottom:12px;
+
+}
+
+
+.step p {
+
+ font-size:15px;
+
+ color:var(--gray-600);
+
+}
+
+
+
+/* FINAL CTA */
+
+.cta {
+
+ margin-top:80px;
+
+ background:
+ linear-gradient(
+ 135deg,
+ var(--navy-950),
+ var(--blue-700)
+ );
+
+ color:white;
+
+ border-radius:22px;
+
+ padding:60px;
+
+ text-align:center;
+
+}
+
+
+.cta h2 {
+
+ color:white;
+
+ margin-top:0;
+
+ font-size:40px;
+
+}
+
+
+.cta p {
+
+ color:rgba(255,255,255,.8);
+
+ max-width:650px;
+
+ margin:20px auto;
+
+}
+
+
+.cta strong {
+
+ color:white;
+
+}
+
+
+.button {
+
+ display:inline-flex;
+
+ align-items:center;
+
+ justify-content:center;
+
+ margin-top:30px;
+
+ background:white;
+
+ color:var(--navy-900);
+
+ padding:15px 30px;
+
+ border-radius:10px;
+
+ text-decoration:none;
+
+ font-weight:600;
+
+ transition:.2s;
+
+}
+
+
+.button:hover {
+
+ transform:translateY(-2px);
+
+}
+
+
+
+/* FOOTER */
+
+footer {
+
+ border-top:1px solid var(--gray-200);
+
+ padding:35px 0;
+
+}
+
+
+footer .wrap {
+
+ display:flex;
+
+ justify-content:space-between;
+
+ align-items:center;
+
+}
+
+
+footer p {
+
+ color:var(--gray-600);
+
+ font-size:14px;
+
+}
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:900px){
+
+ .hero h1 {
+  font-size:42px;
+ }
+
+ .nav-links {
+  display:none;
+ }
+
+ .questions,
+ .canonical-list,
+ .process {
+  grid-template-columns:1fr;
+ }
+
+ .article {
+  padding:60px 25px;
+ }
+
+ .questions-wrapper {
+
+  margin-left:-25px;
+  margin-right:-25px;
+
+  padding:45px 25px;
+
+ }
+
+ .cta {
+
+  padding:40px 25px;
+
+ }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="wrap nav-inner">
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<div class="nav-links">
+
+<a href="#">Services</a>
+<a href="#">About</a>
+<a href="#">Work</a>
+<a href="#">Resources</a>
+<a href="#">Contact</a>
+
+</div>
+
+
+<a href="#contact" class="nav-btn">
+Start a conversation
+</a>
+
+
+</div>
+
+</nav>
+
+
+
+<section class="hero">
+
+<div class="wrap">
+
+<div class="meta">
+DATA STRATEGY · DATA MODELING · RESOURCE
+</div>
+
+
+<h1>
+Canonical Data, Explained
+</h1>
+
+
+<p>
+"Canonical data" sounds technical. The idea behind it isn't.
+It simply means: <strong>one definition of the truth, used everywhere.</strong>
+</p>
+
+
+<div class="read-time">
+9 MIN READ · CANONICA DATA
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<article class="article">
+
+
+<div class="summary">
+
+<h3>
+Executive takeaway
+</h3>
+
+
+<p>
+Canonical data is the single, governed version of a business fact, one definition of "customer," "revenue," or "active user" that every team,
+every report, and every AI system pulls from. Without it, every dashboard
+and every model is just a different guess at the truth.
+</p>
+
+
+</div>
+
+
+
+<h2>
+What does "canonical" actually mean?
+</h2>
+
+
+<p>
+In publishing, a "canonical" text is the authoritative version. It is the one
+everyone agrees to treat as correct. In data, the meaning is identical.
+</p>
+
+<p>
+<strong>A canonical data model is the one agreed-upon version of a business
+concept, built once and reused everywhere</strong>, instead of being
+redefined by every team, every tool, and every spreadsheet that touches it.
+</p>
+
+
+
+<h2>
+A simple example: "customer"
+</h2>
+
+
+<div class="metric-box">
+
+<p><strong>CRM stores:</strong> full_name, email, signup_date</p>
+
+<p><strong>Billing system stores:</strong> customer_name, email_address, contract_start</p>
+
+<p><strong>Product analytics stores:</strong> user_name, contact_email, first_login</p>
+
+</div>
+
+
+<p>
+Same person, three systems, three different field names for the same
+three facts. No dashboard problem yet, just three teams who built their
+own schema without ever agreeing on a shared one.
+</p>
+
+
+<ul>
+
+<li>Every system captured the right information.</li>
+
+<li>Nobody agreed on what to call it.</li>
+
+<li>Every integration between these systems now needs custom mapping logic, maintained by hand.</li>
+
+</ul>
+
+
+<p>
+A canonical customer model fixes this once. It defines a single
+<strong>name</strong>, a single <strong>email</strong>, and a single
+<strong>signup date</strong> field, then maps every source system to
+that shared definition. New integrations plug into one standard instead
+of three.
+</p>
+
+
+
+<h2>
+Why leaders should care
+</h2>
+
+
+<p>
+Canonical data isn't a technical nicety. It's the difference between an
+organization that can trust its own numbers and one that debates them in
+every meeting.
+</p>
+
+
+<ul>
+
+<li>
+<strong>Faster decisions.</strong>
+Leadership reviews stop being spent reconciling numbers and start being
+spent acting on them.
+</li>
+
+<li>
+<strong>Cheaper reporting.</strong>
+Analysts stop rebuilding the same metric five different ways for five
+different teams.
+</li>
+
+<li>
+<strong>Reliable AI.</strong>
+AI and machine learning models inherit whatever definitions sit
+underneath them. Ungoverned inputs produce confidently wrong outputs.
+</li>
+
+<li>
+<strong>Audit-ready reporting.</strong>
+One documented definition, one owner, one source system, instead of a
+spreadsheet nobody can trace back to its origin.
+</li>
+
+</ul>
+
+
+
+<div class="questions-wrapper">
+
+
+<h2>
+Canonical data: the questions leaders actually ask
+</h2>
+
+
+<p>
+Straight answers to the questions that come up most often when this
+topic reaches the executive level.
+</p>
+
+
+
+<div class="questions">
+
+
+<div class="question">
+
+<h3>
+Who should own a canonical data model?
+</h3>
+
+
+<p>
+Usually data engineering or analytics engineering builds it, but
+ownership of each definition belongs to the business. A finance leader
+should own the definition of revenue. A sales leader should own the
+definition of a qualified lead. Engineering builds the model. The
+business defines what it means.
+</p>
+
+
+<div class="problem">
+
+Common mix-up:
+Handing definition ownership entirely to engineering, then wondering
+why the business doesn't trust a model it never agreed to.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+Do we need to rebuild all our systems to get there?
+</h3>
+
+
+<p>
+No. Canonical modeling happens in the data layer, typically a
+warehouse plus a transformation tool like dbt, sitting between your
+source systems and your reports. Source systems stay exactly as they
+are.
+</p>
+
+
+<div class="problem">
+
+Common mix-up:
+Assuming this requires replacing the CRM, ERP, or billing platform. It
+doesn't.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+How long does building one actually take?
+</h3>
+
+
+<p>
+For a single high-priority metric like revenue or active users, a
+working canonical model typically takes a few weeks, most of which is
+spent aligning stakeholders on the definition, not writing code. Modeling
+the full business takes longer, but you don't need to do it all at once.
+</p>
+
+
+<div class="problem">
+
+Common mix-up:
+Treating this as a multi-quarter platform project instead of starting
+with the one or two metrics causing the most pain today.
+
+</div>
+
+
+</div>
+
+
+
+<div class="question">
+
+<h3>
+Where should we start?
+</h3>
+
+
+<p>
+With the two or three metrics your leadership team argues about most,
+usually revenue, customers, or active usage. Canonical modeling pays
+off fastest on the numbers everyone already depends on.
+</p>
+
+
+<div class="problem">
+
+Common mix-up:
+Trying to model the entire business at once instead of the metrics that
+actually drive decisions.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="canonical-section">
+
+
+<h2>
+What a canonical data model gives you
+</h2>
+
+
+<p>
+The output isn't a document. It's an operating foundation that every
+report, model, and team can build on with confidence.
+</p>
+
+
+
+<div class="canonical-list">
+
+
+<div class="canonical-item">
+<strong>One definition</strong><br>
+Every team references the same meaning for the metrics that matter.
+</div>
+
+
+<div class="canonical-item">
+<strong>One owner per metric</strong><br>
+Each definition has a named owner and a documented source system.
+</div>
+
+
+<div class="canonical-item">
+<strong>One reusable model</strong><br>
+Built once in the data layer, consumed by every dashboard, report, and AI tool downstream.
+</div>
+
+
+<div class="canonical-item">
+<strong>One trusted answer</strong><br>
+Leadership gets a number once, and it holds up under scrutiny.
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<h2>
+How Canonica builds it
+</h2>
+
+
+<p>
+Every engagement follows the same principle:
+<strong>understand first, define second, build third.</strong>
+</p>
+
+
+<div class="process">
+
+
+<div class="step">
+
+<span>01</span>
+
+<h3>Discover</h3>
+
+<p>
+Map the systems, teams, and metrics where definitions currently
+disagree.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>02</span>
+
+<h3>Define</h3>
+
+<p>
+Align stakeholders on one definition per metric, with a named owner.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>03</span>
+
+<h3>Model</h3>
+
+<p>
+Build the canonical model once, in the data layer, using dimensional
+modeling and SCD-aware design.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<span>04</span>
+
+<h3>Deliver</h3>
+
+<p>
+Connect dashboards, reports, and AI tools to the same governed
+foundation.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="cta">
+
+
+<h2>
+The Canonica Principle
+</h2>
+
+
+<p>
+<strong>One definition. One trusted foundation.</strong>
+</p>
+
+
+<p>
+Canonical data isn't about having more reports. It's about every team
+starting from the same understanding of what's true.
+</p>
+
+
+<a href="#contact" class="button">
+Start a conversation →
+</a>
+
+
+</div>
+
+
+
+</article>
+
+
+
+<footer>
+
+<div class="wrap">
+
+<div class="brand">
+Canonica Data
+</div>
+
+
+<p>
+canonicadata.com · © 2026
+</p>
+
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
