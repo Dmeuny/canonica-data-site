@@ -844,8 +844,10 @@ export default function Home() {
           <div className="about-grid">
             <div className="about-copy">
               <span className="section-eyebrow">About</span>
-              <h2 style={{ fontSize: "32px", marginBottom: "18px", letterSpacing: "-0.015em" }}>You work directly with the person building your system.</h2>
-              <p>Canonica Data is Dev Meunier. Six years spent inside operations, reporting, and analytics, close enough to the numbers to see exactly where trust in them breaks down, before specializing in the systems underneath: the pipelines, models, and definitions that decide whether a business can actually rely on its own data.</p>
+              <h2 style={{ fontSize: "32px", marginBottom: "18px", letterSpacing: "-0.015em" }}>
+                You work directly with the person building your system.</h2>
+              <p>Canonica Data is led by Devin Meunier, a data professional who spent years working with the realities of business reporting before moving deeper into data engineering. That experience shapes how Canonica
+            approaches every project: <b>understand the business first, then build the technology around it.</b> </p>
               <p>Every engagement is hands-on from start to finish. No account manager between you and the work, no junior team learning on your project, no handoffs.</p>
             </div>
             <div className="credentials">
