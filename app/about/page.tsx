@@ -13,12 +13,12 @@ export default function AboutPage() {
             About Canonica Data
           </div>
 
-          <h1>Six years in analytics. Built to engineering standard.</h1>
+          <h1>Build the foundation. Then build everything on it.</h1>
 
           <p className={styles.lede}>
-            Canonica Data is led by Devin Meunier, an analytics professional
-            turning messy reporting into systems people actually trust, now
-            built on a foundation of formal data engineering training.
+            Canonica Data is led by Devin Meunier, a data professional who spent years working with the realities of
+            business reporting before moving deeper into data engineering. That experience shapes how Canonica
+            approaches every project: <b>understand the business first, then build the technology around it. </b>
           </p>
         </div>
       </section>
