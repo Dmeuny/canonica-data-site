@@ -975,114 +975,171 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Tech Stack ===== */}
-      <section className="section section-alt" id="stack">
-        <div className="wrap">
-          <div className="section-head">
-            <span className="section-eyebrow">Technology</span>
-            <h2>A modern, proven stack</h2>
-            <p>You don&apos;t need to know what any of this means, that&apos;s the point. Here&apos;s what each tool actually does for your business, in plain terms.</p>
-          </div>
+      {/* ===== Tech Stack ===== */} <section className="section section-alt" id="stack"> <div className="wrap"> <div className="section-head"> <span className="section-eyebrow">Technology</span> <h2>The right stack for the problem</h2> <p>
+You don't need to know what any of this means. We translate the technology into practical solutions for your business.
+We're stack-agnostic and choose the tools that fit your existing environment, business needs, and goals. Here's what
+each tool actually does for your business, in plain terms. </p> </div>
 
-          <div className="stack-category">
-            <span className="stack-category-label">Moving and transforming data</span>
-            <div className="stack-cards">
-              <div className="stack-card">
-                <div className="stack-card-name">Python</div>
-                <div className="stack-card-desc">General-purpose programming used to automate tasks and connect different systems together.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">SQL</div>
-                <div className="stack-card-desc">The standard language for asking questions of business data, the foundation everything else is built on.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">dbt</div>
-                <div className="stack-card-desc">Turns raw data into clean, tested, reusable business definitions everyone can rely on.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Prefect</div>
-                <div className="stack-card-desc">Runs and monitors data workflows automatically, and flags it immediately if something breaks.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Apache Spark</div>
-                <div className="stack-card-desc">Processes very large volumes of data quickly, even at a scale a spreadsheet couldn&apos;t handle.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Databricks</div>
-                <div className="stack-card-desc">A cloud platform for running large-scale data and analytics work reliably.</div>
-              </div>
+      <div className="stack-category">
+        <span className="stack-category-label">Moving and transforming data</span>
+        <div className="stack-cards">
+          <div className="stack-card">
+            <div className="stack-card-name">Python</div>
+            <div className="stack-card-desc">
+              General-purpose programming used to automate tasks and connect
+              different systems together.
             </div>
           </div>
 
-          <div className="stack-category">
-            <span className="stack-category-label">Real-time data</span>
-            <div className="stack-cards">
-              <div className="stack-card">
-                <div className="stack-card-name">Apache Kafka</div>
-                <div className="stack-card-desc">Streams data the moment it happens, instead of waiting for an overnight batch update.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Apache Flink</div>
-                <div className="stack-card-desc">Processes streaming data continuously, enabling up-to-the-second dashboards and alerts.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Apache Iceberg &amp; Trino</div>
-                <div className="stack-card-desc">A modern data format that lets multiple tools safely read and write the same data without conflicts.</div>
-              </div>
+          <div className="stack-card">
+            <div className="stack-card-name">SQL</div>
+            <div className="stack-card-desc">
+              The standard language for asking questions of business data,
+              the foundation everything else is built on.
             </div>
           </div>
 
-          <div className="stack-category">
-            <span className="stack-category-label">Storage and infrastructure</span>
-            <div className="stack-cards">
-              <div className="stack-card">
-                <div className="stack-card-name">AWS (S3, Glue, Athena)</div>
-                <div className="stack-card-desc">Secure, scalable cloud storage and infrastructure your data lives on.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">PostgreSQL &amp; Supabase</div>
-                <div className="stack-card-desc">Reliable, well-tested database infrastructure for storing business data.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Docker</div>
-                <div className="stack-card-desc">Packages software so it runs consistently, whether on a laptop or in the cloud.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Git &amp; GitHub</div>
-                <div className="stack-card-desc">Tracks every change safely, so nothing is ever lost and every update can be reviewed.</div>
-              </div>
+          <div className="stack-card">
+            <div className="stack-card-name">dbt</div>
+            <div className="stack-card-desc">
+              Turns raw data into clean, tested, reusable business
+              definitions everyone can rely on.
             </div>
           </div>
 
-          <div className="stack-category">
-            <span className="stack-category-label">Reporting and visibility</span>
-            <div className="stack-cards">
-              <div className="stack-card">
-                <div className="stack-card-name">Tableau <span style={{ color: "var(--teal-600)" }}>&middot; certified</span></div>
-                <div className="stack-card-desc">Turns data into clear visual dashboards built for decision-makers, not just analysts.</div>
-              </div>
-              <div className="stack-card">
-                <div className="stack-card-name">Streamlit</div>
-                <div className="stack-card-desc">Quickly builds simple, interactive internal tools and dashboards.</div>
-              </div>
+          <div className="stack-card">
+            <div className="stack-card-name">Prefect</div>
+            <div className="stack-card-desc">
+              Runs and monitors data workflows automatically, and flags it
+              immediately if something breaks.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Apache Airflow</div>
+            <div className="stack-card-desc">
+              Orchestrates complex data workflows, scheduling jobs and
+              managing dependencies so pipelines run reliably.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Apache Spark</div>
+            <div className="stack-card-desc">
+              Processes very large volumes of data quickly, even at a scale
+              a spreadsheet couldn&apos;t handle.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Databricks</div>
+            <div className="stack-card-desc">
+              A cloud platform for running large-scale data and analytics
+              work reliably.
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* ===== Contact ===== */}
-      <section className="section section-alt" id="contact">
-        <div className="wrap">
-          <div className="contact-grid">
-            <div className="contact-copy">
-              <span className="section-eyebrow">Contact</span>
-              <h2>Let&apos;s build a foundation you can trust.</h2>
-              <p>Tell us about your data, where it lives today, and where it needs to go. We&apos;ll follow up within one business day.</p>
+      <div className="stack-category">
+        <span className="stack-category-label">Real-time data</span>
+        <div className="stack-cards">
+          <div className="stack-card">
+            <div className="stack-card-name">Apache Kafka</div>
+            <div className="stack-card-desc">
+              Streams data the moment it happens, instead of waiting for an
+              overnight batch update.
             </div>
-            <ContactForm />
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Apache Flink</div>
+            <div className="stack-card-desc">
+              Processes streaming data continuously, enabling up-to-the-second
+              dashboards and alerts.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Apache Iceberg &amp; Trino</div>
+            <div className="stack-card-desc">
+              A modern data format that lets multiple tools safely read and
+              write the same data without conflicts.
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="stack-category">
+        <span className="stack-category-label">Storage and infrastructure</span>
+        <div className="stack-cards">
+          <div className="stack-card">
+            <div className="stack-card-name">AWS (S3, Glue, Athena)</div>
+            <div className="stack-card-desc">
+              Secure, scalable cloud storage and infrastructure your data
+              lives on.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Snowflake</div>
+            <div className="stack-card-desc">
+              A cloud data platform built for storing, transforming, and
+              analyzing business data at scale.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">PostgreSQL &amp; Supabase</div>
+            <div className="stack-card-desc">
+              Reliable, well-tested database infrastructure for storing
+              business data.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Docker</div>
+            <div className="stack-card-desc">
+              Packages software so it runs consistently, whether on a laptop
+              or in the cloud.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Git &amp; GitHub</div>
+            <div className="stack-card-desc">
+              Tracks every change safely, so nothing is ever lost and every
+              update can be reviewed.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="stack-category">
+        <span className="stack-category-label">Reporting and visibility</span>
+        <div className="stack-cards">
+          <div className="stack-card">
+            <div className="stack-card-name">
+              Tableau{" "}
+              <span style={{ color: "var(--teal-600)" }}>&middot; certified</span>
+            </div>
+            <div className="stack-card-desc">
+              Turns data into clear visual dashboards built for decision-makers,
+              not just analysts.
+            </div>
+          </div>
+
+          <div className="stack-card">
+            <div className="stack-card-name">Streamlit</div>
+            <div className="stack-card-desc">
+              Quickly builds simple, interactive internal tools and dashboards.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
       {/* ===== FAQ ===== */}
       <section className="section faq-section" id="faq">
