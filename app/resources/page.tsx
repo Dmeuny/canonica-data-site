@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import Link from "next/link";
+import Link from "next/link";
+import Navbar from "../components/Navbar";
 import styles from "./resources.module.css";
 
 export default function ResourcesPage() {
@@ -59,9 +61,12 @@ export default function ResourcesPage() {
                   reliable models, and a single foundation everyone can use.
                 </p>
 
-                <a href="#" className={styles.readLink}>
+                <Link
+                  href="/resources/dashboard-isnt-the-problem"
+                  className={styles.readLink}
+                >
                   Read article →
-                </a>
+                </Link>
               </div>
 
               <div className={styles.featureSide}>
@@ -95,54 +100,63 @@ export default function ResourcesPage() {
                 category="Data Foundations"
                 title='What "Canonical Data" Actually Means'
                 description="Why organizations need shared definitions and trusted business logic before analytics can truly scale."
+                href="/resources/canonical-data-explained"
               />
 
               <ResourceCard
                 category="AI Readiness"
                 title="Preparing Your Data for AI Before You Buy AI Tools"
                 description="AI systems depend on reliable context. Learn what needs to exist before expecting accurate answers."
+                href="/resources/preparing-data-for-ai"
               />
 
               <ResourceCard
                 category="Data Strategy"
                 title="Five Signs Your Company Doesn't Have a Single Source of Truth"
                 description="The warning signs that reporting problems are actually foundation problems."
+                href="/resources/signs-no-single-source-of-truth"
               />
 
               <ResourceCard
                 category="Business Alignment"
                 title="Why Data Engineering Is Really About Business Decisions"
                 description="The goal of engineering data is not moving information. It is creating better decisions."
+                href="/resources/data-engineering-business-decisions"
               />
 
               <ResourceCard
                 category="Analytics Operations"
                 title="The Hidden Cost of Spreadsheet Reporting"
                 description="How manual reporting creates hidden risk, duplicated effort, and inconsistent business logic."
+                href="/resources/hidden-cost-spreadsheet-reporting"
               />
 
               <ResourceCard
                 category="Consulting Process"
                 title="How We Run Discovery Before Writing Code"
                 description="Why understanding the business comes before designing pipelines, models, or dashboards."
+                href="/resources/discovery-before-code"
               />
 
               <ResourceCard
                 category="Data Engineering"
                 title="What Makes a Data Pipeline Reliable?"
                 description="The principles behind pipelines that organizations can actually depend on."
+                href="/resources/reliable-data-pipelines"
               />
 
               <ResourceCard
                 category="Data Modeling"
                 title="Dimensional Modeling Explained Without the Jargon"
                 description="A practical explanation of how modern analytics models organize business information."
+                href="/resources/dimensional-modeling-explained"
               />
 
               <ResourceCard
                 category="Analytics Engineering"
                 title="What Is a Semantic Layer, and Why Should You Care?"
                 description="How semantic layers create consistency between dashboards, applications, and AI systems."
+                href="/resources/semantic-layer-explained"
               />
             </div>
           </div>
@@ -214,10 +228,12 @@ function ResourceCard({
   category,
   title,
   description,
+  href,
 }: {
   category: string;
   title: string;
   description: string;
+  href: string;
 }) {
   return (
     <article className={styles.resourceCard}>
@@ -227,7 +243,7 @@ function ResourceCard({
 
       <p>{description}</p>
 
-      <a href="#">Read article →</a>
+      <Link href={href}>Read article →</Link>
     </article>
   );
 }
