@@ -1,3 +1,4 @@
+import HeroVisual from "./components/HeroVisual";
 import Navbar from "./components/Navbar";
 import type { Metadata } from "next";
 import ContactForm from "./components/ContactForm";
@@ -747,55 +748,55 @@ export default function Home() {
 
       <Navbar />
 
-      {/* ===== Hero ===== */}
-      <section className="hero">
-        <div className="wrap">
-          <div>
-            <div className="eyebrow"><span className="eyebrow-dot"></span>Data engineering &amp; analytics consulting</div>
-            <h1>One number. <span>Everyone trusts it.</span></h1>
-            <p className="lede">Canonica Data builds the pipelines, models, and reporting foundations that make your company&apos;s numbers reliable, so your team spends meetings making decisions, not debating whose spreadsheet is right.</p>
-            <div className="hero-actions">
-              <a href="/contact" className="btn-primary">
-                Start a conversation
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </a>
-              <a href="/services" className="btn-secondary-link">See services</a>
-            </div>
-          </div>
-          <div className="hero-visual">
-            <svg viewBox="0 0 480 460" width="100%" height="100%" style={{ overflow: "visible" }}>
-              <defs>
-                <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#2FA8A0" stopOpacity="0.35"/>
-                  <stop offset="100%" stopColor="#2FA8A0" stopOpacity="0"/>
-                </radialGradient>
-              </defs>
+     {/* ===== Hero ===== */}
+<section className="hero">
+  <div className="wrap">
+    <div>
+      <div className="eyebrow">
+        <span className="eyebrow-dot"></span>
+        Data engineering &amp; analytics consulting
+      </div>
 
-              <line x1="240" y1="230" x2="80" y2="90" stroke="#D6DEE7" strokeWidth="1.5" strokeDasharray="4 5"/>
-              <line x1="240" y1="230" x2="400" y2="70" stroke="#D6DEE7" strokeWidth="1.5" strokeDasharray="4 5"/>
-              <line x1="240" y1="230" x2="60" y2="300" stroke="#D6DEE7" strokeWidth="1.5" strokeDasharray="4 5"/>
-              <line x1="240" y1="230" x2="410" y2="340" stroke="#D6DEE7" strokeWidth="1.5"/>
-              <line x1="240" y1="230" x2="150" y2="410" stroke="#D6DEE7" strokeWidth="1.5"/>
-              <line x1="240" y1="230" x2="330" y2="410" stroke="#D6DEE7" strokeWidth="1.5"/>
-              <line x1="410" y1="340" x2="400" y2="70" stroke="#E7ECF1" strokeWidth="1.2"/>
-              <line x1="150" y1="410" x2="60" y2="300" stroke="#E7ECF1" strokeWidth="1.2"/>
+      <h1>
+        One number. <span>Everyone trusts it.</span>
+      </h1>
 
-              <circle cx="240" cy="230" r="60" fill="url(#nodeGlow)"/>
-              <circle cx="240" cy="230" r="17" fill="#0B1E3D"/>
-              <circle cx="240" cy="230" r="17" fill="none" stroke="#2FA8A0" strokeWidth="2.5"/>
+      <p className="lede">
+        Canonica Data builds the pipelines, models, and reporting foundations
+        that make your company&apos;s numbers reliable, so your team spends
+        meetings making decisions, not debating whose spreadsheet is right.
+      </p>
 
-              <circle cx="80" cy="90" r="7" fill="#9AA6B4" opacity="0.7"/>
-              <circle cx="400" cy="70" r="6" fill="#9AA6B4" opacity="0.6"/>
-              <circle cx="60" cy="300" r="6" fill="#9AA6B4" opacity="0.6"/>
-              <circle cx="410" cy="340" r="9" fill="#3B6EA5"/>
-              <circle cx="150" cy="410" r="8" fill="#3B6EA5"/>
-              <circle cx="330" cy="410" r="7" fill="#9AA6B4" opacity="0.7"/>
+      <div className="hero-actions">
+        <a href="/contact" className="btn-primary">
+          Start a conversation
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M3 8H13M13 8L9 4M13 8L9 12"
+              stroke="white"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </a>
 
-              <rect x="215" y="205" width="50" height="50" rx="10" fill="none" stroke="#2FA8A0" strokeWidth="1" strokeDasharray="3 4" opacity="0.5"/>
-            </svg>
-          </div>
-        </div>
-      </section>
+        <a href="/services" className="btn-secondary-link">
+          See services
+        </a>
+      </div>
+    </div>
+
+    <div className="hero-visual">
+      <HeroVisual />
+    </div>
+  </div>
+</section>
 
       {/* ===== Services ===== */}
       <section className="section" id="services">
