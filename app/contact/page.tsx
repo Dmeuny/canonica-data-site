@@ -12,8 +12,7 @@ export default function ContactPage() {
       <section className={styles.pageHero}>
         <div className={styles.wrap}>
           <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot}></span>
-            Get in touch
+            Get in touch today
           </div>
 
           <h1>Let&apos;s build a data foundation you can trust.</h1>

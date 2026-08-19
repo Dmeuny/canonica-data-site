@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "IBM Plex Mono";
   font-weight: 600;
   font-size: 19px;
   color: var(--navy-900);
@@ -92,11 +92,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12.5px;
+  font-family: "IBM Plex Mono";
+  font-size: 22px;
   font-weight: 500;
-  color: var(--teal-600);
-  background: rgba(47, 168, 160, 0.09);
+  color: var(--blue-500);
+  background: rgba(255, 255, 255, 0.09);
   border: 1px solid rgba(47, 168, 160, 0.25);
   padding: 6px 14px;
   border-radius: 100px;
@@ -140,7 +140,7 @@
 }
 
 .sectionEyebrow {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 12.5px;
   font-weight: 500;
   color: var(--teal-600);
@@ -197,7 +197,7 @@
 }
 
 .mono {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Space Grotesk", sans-serif;
   color: var(--gray-600);
   font-size: 13px;
 }

@@ -26,7 +26,7 @@ export default function ContactForm() {
             id="name"
             name="name"
             type="text"
-            placeholder="Jane Cooper"
+            placeholder=""
             required
           />
         </div>
@@ -37,7 +37,19 @@ export default function ContactForm() {
             id="company"
             name="company"
             type="text"
-            placeholder="Acme Inc."
+            placeholder=""
+          />
+        </div>
+      </div>
+
+      <div className={styles.formRow}>
+        <div className={`${styles.field} ${styles.full}`}>
+          <label htmlFor="phone">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder=""
           />
         </div>
       </div>
@@ -49,7 +61,7 @@ export default function ContactForm() {
             id="email"
             name="email"
             type="email"
-            placeholder="jane@acme.com"
+            placeholder=""
             required
           />
           <ValidationError
